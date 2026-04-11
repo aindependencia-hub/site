@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programa de Embaixadores — Independência</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --warm-grey: #F4F1ED;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+      --gold: #D4AF37;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    .hero { padding: 100px 0 60px; text-align: center; background: var(--warm-grey); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--dark); margin-bottom: 20px; }
+    .hero p { font-size: 20px; max-width: 800px; margin: 0 auto; color: var(--accent); }
+
+    .grid-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 60px 0; }
+
+    .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; transition: transform 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); }
+    .card-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+
+    .process-section { padding: 80px 0; background: var(--dark); color: white; border-radius: 20px; margin-bottom: 60px; }
+    .process-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; text-align: center; margin-bottom: 50px; }
+    
+    .steps { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+    .step { flex: 1; min-width: 200px; text-align: center; padding: 20px; }
+    .step-number { font-size: 48px; font-family: 'Cormorant Garamond', serif; color: var(--accent); display: block; margin-bottom: 10px; }
+
+    .form-section { padding: 60px 0; text-align: center; }
+    .btn-action {
+      display: inline-block;
+      padding: 18px 40px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 18px;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-action:hover { background: var(--dark); transform: scale(1.05); }
+
+    @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } .steps { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <a href="index.html" style="text-decoration: none; color: var(--dark); font-weight: bold; font-size: 13px; text-transform: uppercase;">← Voltar ao Ecossistema</a>
+      <h1>Seja um Galo Independência</h1>
+      <p>Transforme seu canal em uma vitrine de arquitetura de alto padrão. Nós fornecemos os projetos, você inspira sua audiência e lucra com cada venda.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <section class="grid-layout">
+      <div class="card">
+        <span class="card-icon">🎬</span>
+        <h3>Conteúdo Pronto</h3>
+        <p>Receba vídeos 3D, renders e plantas humanizadas prontas para subir no YouTube, Reels ou TikTok.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">💰</span>
+        <h3>Comissões via Hotmart</h3>
+        <p>Links exclusivos para plantas completas e produtos da curadoria. Receba diretamente na sua conta.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🏗️</span>
+        <h3>Autoridade Técnica</h3>
+        <p>Ofereça soluções reais de arquitetura assinadas por profissionais para o seu público.</p>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="container">
+        <h2>Como funciona a parceria?</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">01</span>
+            <p>Você recebe o <strong>"Projeto da Semana"</strong> com todo o material visual pronto.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <p>Posta no seu canal orientando o público a buscar o projeto na nossa <strong>Galeria</strong>.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <p>Seu seguidor compra a planta completa via seu <strong>link Hotmart</strong> e você ganha a comissão.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="cadastro">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 32px;">Pronto para começar?</h2>
+      <p style="margin-bottom: 40px;">Preencha seus dados abaixo e nossa equipe de curadoria entrará em contato.</p>
+      
+      <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <p><em>[Seu Formulário HTML Personalizado aparecerá aqui]</em></p>
+        <a href="https://airtable.com/embed/shrzQt07I1rIgdhvr" class="btn-action">Cadastrar meu Canal</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer style="text-align: center; padding: 80px 20px; color: #999; font-size: 12px; background: var(--warm-grey); margin-top: 60px;">
+    &copy; 2026 Ecossistema Independência. <br>
+    Focado em democratizar a arquitetura de qualidade através da colaboração.
+  </footer>
+
+</body>
+</html>
+
