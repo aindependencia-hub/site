@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos e Projetos — Independência</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --warm-grey: #F4F1ED;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+      --success: #2D5A27;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    .header { padding: 80px 0 40px; text-align: center; }
+    .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: var(--dark); margin-bottom: 10px; }
+    .header p { font-size: 18px; color: var(--accent); font-style: italic; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .plan-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--warm-grey);
+    }
+
+    .plan-card.featured {
+      border: 2px solid var(--accent);
+      transform: scale(1.05);
+    }
+
+    .plan-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--dark); margin: 0; }
+    .plan-price { font-size: 32px; font-weight: 700; color: var(--dark); margin: 20px 0; }
+    .plan-price span { font-size: 16px; color: #999; font-weight: 400; }
+
+    .list-title { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 10px; color: var(--accent); }
+    
+    .feature-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+    .feature-list li { margin-bottom: 12px; font-size: 15px; display: flex; align-items: flex-start; }
+    .feature-list li::before { content: "✓"; color: var(--success); margin-right: 10px; font-weight: bold; }
+    .feature-list li.not-covered { color: #999; }
+    .feature-list li.not-covered::before { content: "✕"; color: #cc0000; }
+
+    .btn-plan {
+      display: block;
+      text-align: center;
+      padding: 15px;
+      background: var(--dark);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 30px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-plan.gold { background: var(--accent); }
+    .btn-plan:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } .plan-card.featured { transform: none; } }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" style="text-decoration: none; color: var(--dark); font-weight: bold; font-size: 12px; text-transform: uppercase;">← Voltar ao Início</a>
+      <h1>Escolha o seu ponto de partida</h1>
+      <p>Do rascunho à execução: soluções sob medida para sua obra.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="pricing-grid">
+      
+      <section class="plan-card">
+        <h2 class="plan-name">Planta de Inspiração</h2>
+        <div class="plan-price">Grátis <span>(Isca)</span></div>
+        <p>Ideal para quem está começando a sonhar e quer ver as possibilidades do terreno.</p>
+        
+        <div class="list-title">O que cobre:</div>
+        <ul class="feature-list">
+          <li>Planta Baixa Humanizada (Layout)</li>
+          <li>Imagem 3D da Fachada Principal</li>
+          <li>Acesso à Galeria de Comunidade</li>
+        </ul>
+
+        <div class="list-title">Não cobre:</div>
+        <ul class="feature-list">
+          <li class="not-covered">Medidas Executivas (Cotas)</li>
+          <li class="not-covered">Lista de Materiais</li>
+          <li class="not-covered">Suporte Técnico</li>
+        </ul>
+        <a href="https://airtable.com/SUO_FORMULARIO" class="btn-plan">Baixar Gratuitamente</a>
+      </section>
+
+      <section class="plan-card featured">
+        <h2 class="plan-name">Projeto Técnico Base</h2>
+        <div class="plan-price">R$ 197,00 <span>pagamento único</span></div>
+        <p>O manual de instruções que o seu pedreiro precisa para erguer as paredes com precisão.</p>
+        
+        <div class="list-title">O que cobre:</div>
+        <ul class="feature-list">
+          <li>Planta Executiva com todas as medidas</li>
+          <li>Planta de Cobertura e Cortes</li>
+          <li>Quadro de Portas e Janelas</li>
+          <li>Vídeo 3D do Projeto Externo</li>
+        </ul>
+
+        <div class="list-title">Não cobre:</div>
+        <ul class="feature-list">
+          <li class="not-covered">Adaptação ao Terreno (Declive)</li>
+          <li class="not-covered">Assinatura de RRT/ART</li>
+          <li class="not-covered">Projetos Hidráulicos/Elétricos</li>
+        </ul>
+        <a href="LINK_HOTMART_CHECKOUT" class="btn-plan gold">Comprar Projeto Completo</a>
+      </section>
+
+      <section class="plan-card">
+        <h2 class="plan-name">Consultoria Especialista</h2>
+        <div class="plan-price">R$ 450,00 <span>por hora</span></div>
+        <p>Atendimento direto com Arquiteto ou Engenheiro para ajustes e dúvidas técnicas.</p>
+        
+        <div class="list-title">O que cobre:</div>
+        <ul class="feature-list">
+          <li>Agendamento Presencial ou Online</li>
+          <li>Análise de Viabilidade no Terreno</li>
+          <li>Dúvidas sobre Materiais e Acabamentos</li>
+          <li>Orientação sobre Aprovação Legal</li>
+        </ul>
+
+        <div class="list-title">Não cobre:</div>
+        <ul class="feature-list">
+          <li class="not-covered">Execução da Obra</li>
+          <li class="not-covered">Emissão de Documentos Finais</li>
+        </ul>
+        <a href="https://calendly.com/SEU_USUARIO" class="btn-plan">Agendar Horário</a>
+      </section>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 40px; color: #999; font-size: 12px;">
+    &copy; 2026 Ecossistema Independência. Todos os direitos reservados.
+  </footer>
+
+</body>
+  </html>
+
