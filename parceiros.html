@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parceiros e Colaboradores — Independência</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --warm-grey: #F4F1ED;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    .header { padding: 80px 0 40px; text-align: center; }
+    .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: var(--dark); margin-bottom: 15px; }
+    .header p { font-size: 18px; max-width: 700px; margin: 0 auto; color: var(--accent); font-style: italic; }
+
+    .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
+
+    .card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); }
+    .card h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--dark); margin-top: 0; }
+    
+    .full-width { grid-column: 1 / -1; }
+
+    /* Estilo do Iframe do Airtable */
+    .airtable-embed { 
+      background: transparent; 
+      border: 1px solid var(--warm-grey); 
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .moderacao-box {
+      background: var(--dark);
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .ranking-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .btn-action {
+      display: inline-block;
+      padding: 12px 25px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index-2.html" style="text-decoration: none; color: var(--dark); font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">← Voltar ao Início</a>
+      <h1>Ecossistema Independência</h1>
+      <p>Um espaço de colaboração entre arquitetos, estudantes e fornecedores para transformar a identidade de cada lar.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid-layout">
+      
+      <section class="card">
+        <h2>Seja um Colaborador Técnico</h2>
+        <p>Estudantes e profissionais: enviem seus projetos para nossa galeria coletiva. Ganhe visibilidade e ajude a democratizar o bom design.</p>
+        <iframe class="airtable-embed" src="LINK_DO_SEU_FORMULARIO_PROJETOS" frameborder="0" width="100%" height="533"></iframe>
+      </section>
+
+      <section class="card">
+        <h2>Seja um Fornecedor</h2>
+        <p>Tem um produto que combina com nossa curadoria? Cadastre sua marca para que seus produtos apareçam em nossos vídeos e projetos 3D.</p>
+        <iframe class="airtable-embed" src="LINK_DO_SEU_FORMULARIO_FORNECEDORES" frameborder="0" width="100%" height="533"></iframe>
+      </section>
+
+      <section class="full-width moderacao-box">
+        <h2 style="color: white;">Curadoria e Moderação</h2>
+        <p style="max-width: 600px; margin: 0 auto 25px;">Nossa comunidade é mantida por moderadores que garantem a qualidade técnica de cada planta disponibilizada.</p>
+        
+        <div class="ranking-list">
+          <div><strong>1º</strong> Arq. Silva (45 pts)</div>
+          <div><strong>2º</strong> Lucas M. (32 pts)</div>
+          <div><strong>3º</strong> Ana Design (28 pts)</div>
+        </div>
+        
+        <br><br>
+        <a href="https://wa.me/SEUNUMERO" class="btn-action">Candidatar-se como Moderador</a>
+      </section>
+
+      <section class="full-width card" id="galeria-comunidade">
+        <h2>Galeria da Comunidade</h2>
+        <p>Projetos aprovados e disponíveis para inspiração e estudo.</p>
+        <iframe class="airtable-embed" src="LINK_DA_SUA_GALERIA_AIRTABLE" frameborder="0" width="100%" height="600"></iframe>
+      </section>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 60px; color: #999; font-size: 12px;">
+    &copy; 2026 Independência. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
