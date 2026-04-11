@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de Cadastro — Hotmart & Calendly</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --warm-grey: #F4F1ED;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+      --border: #E5E0D8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    
+    header { border-bottom: 2px solid var(--accent); margin-bottom: 40px; padding-bottom: 20px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--dark); }
+    
+    .status-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #D4AF37;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card-guia {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .info-table th, .info-table td { 
+      text-align: left; 
+      padding: 12px; 
+      border-bottom: 1px solid var(--warm-grey); 
+    }
+    .info-table th { color: var(--accent); width: 30%; font-size: 14px; }
+
+    .copy-box {
+      background: var(--warm-grey);
+      padding: 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      border-left: 4px solid var(--accent);
+      margin-top: 10px;
+    }
+
+    .instrucao {
+      background: #fff9e6;
+      border-left: 4px solid #ffcc00;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .aba-btn {
+      background: var(--dark);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div style="margin-bottom: -2px;">
+      <span class="aba-btn">Configuração Hotmart</span>
+    </div>
+    
+    <header>
+      <h1>Manual de Cadastro de Produtos</h1>
+      <p>Utilize estas informações para padronizar seus produtos na plataforma Hotmart.</p>
+    </header>
+
+    <section class="card-guia">
+      <span class="status-tag">Produto Digital</span>
+      <h2>1. Projeto Técnico Executivo</h2>
+      <p>Este é o produto de prateleira. O cliente compra e baixa automaticamente.</p>
+
+      <table class="info-table">
+        <tr>
+          <th>Nome do Produto</th>
+          <td>Projeto Técnico Executivo - [Nome do Projeto]</td>
+        </tr>
+        <tr>
+          <th>Tipo de Arquivo</th>
+          <td>Arquivo de Computador (PDF, DWG, Imagens)</td>
+        </tr>
+        <tr>
+          <th>Categoria</th>
+          <td>Arquitetura e Engenharia</td>
+        </tr>
+        <tr>
+          <th>Forma de Acesso</th>
+          <td>Download direto via Hotmart</td>
+        </tr>
+      </table>
+
+      <h3>Descrição para a Hotmart:</h3>
+      <div class="copy-box">
+Manual técnico completo para execução civil da planta [NOME]. Contém todas as cotas (medidas), cortes e especificações para o mestre de obras.
+
+O que você recebe:
+- Planta Baixa Executiva (Arquitetônica);
+- Cortes de Elevação (Transversal e Longitudinal);
+- Planta de Cobertura e Telhado;
+- Quadro de Esquadrias (Portas e Janelas);
+- Vídeo 3D de referência externa.
+
+*Importante: Este projeto deve ser validado por um Responsável Técnico (RT) local para aprovação na prefeitura e emissão de ART/RRT.*</div>
+    </section>
+
+    <section class="card-guia">
+      <span class="status-tag">Serviço Online/Presencial</span>
+      <h2>2. Consultoria Especialista (Agendamento)</h2>
+      <p>Vendido como um "ingresso" ou serviço que dá direito a um horário seu ou de um parceiro.</p>
+
+      <table class="info-table">
+        <tr>
+          <th>Nome do Produto</th>
+          <td>Consultoria Técnica Individual (60 min)</td>
+        </tr>
+        <tr>
+          <th>Tipo de Arquivo</th>
+          <td>Consultoria / Mentoria Online</td>
+        </tr>
+        <tr>
+          <th>Entrega</th>
+          <td>Arquivo PDF com link do Calendly para agendamento</td>
+        </tr>
+      </table>
+
+      <h3>Como configurar a entrega:</h3>
+      <div class="instrucao">
+        <strong>Estratégia:</strong> Como a Hotmart é focada em arquivos, você deve subir um PDF de 1 página com o seu logotipo e o texto: 
+        <em>"Obrigado pela compra! Clique no link abaixo para escolher seu horário no nosso calendário oficial: [LINK DO SEU CALENDLY]"</em>.
+      </div>
+    </section>
+
+    <section class="card-guia">
+      <span class="status-tag">Ferramenta Externa</span>
+      <h2>3. Configuração do Calendly</h2>
+      <p>Onde o cliente de Tupã ou de fora marcará o horário.</p>
+
+      <table class="info-table">
+        <tr>
+          <th>Tipo de Evento</th>
+          <td>Individual (One-on-One)</td>
+        </tr>
+        <tr>
+          <th>Localização</th>
+          <td>Google Meet (Online) ou Endereço em Tupã (Presencial)</td>
+        </tr>
+        <tr>
+          <th>Buffer de Tempo</th>
+          <td>Adicione 15 min antes e depois de cada reunião</td>
+        </tr>
+      </table>
+    </section>
+
+    <footer style="margin-top: 60px; font-size: 13px; color: #777;">
+      <p>Dica: Sempre que criar um novo projeto na Galeria, clone o produto "Projeto Técnico" na Hotmart e troque apenas o nome e os arquivos. Isso economiza tempo!</p>
+    </footer>
+  </div>
+
+</body>
+                                       </html>
+
