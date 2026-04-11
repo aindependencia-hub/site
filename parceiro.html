@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parceiros & Fornecedores — Independência</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --warm-grey: #F4F1ED;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    
+    .header { padding: 60px 0; text-align: center; }
+    .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--dark); margin-bottom: 10px; }
+    .header p { font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+    .grid-forms { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
+
+    .card-form { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    .card-form h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--dark); margin-bottom: 20px; border-bottom: 1px solid var(--warm-grey); padding-bottom: 10px; }
+
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 5px; color: var(--dark); }
+    input, select, textarea { 
+      width: 100%; padding: 12px; border: 1px solid #E2E2E2; border-radius: 6px; 
+      font-family: inherit; font-size: 14px; box-sizing: border-box;
+    }
+    
+    .btn-submit {
+      width: 100%; padding: 15px; background: var(--dark); color: white; border: none;
+      border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px;
+    }
+    .btn-submit:hover { background: var(--accent); }
+
+    .badge { 
+      display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; 
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+    }
+    .badge-blue { background: #E3F2FD; color: #1976D2; }
+    .badge-gold { background: #FFF9C4; color: #FBC02D; }
+
+    @media (max-width: 768px) { .grid-forms { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" style="text-decoration: none; color: var(--accent); font-weight: bold;">← Voltar ao site</a>
+      <h1>Ecossistema Independência</h1>
+      <p>Conectamos mentes criativas e produtos de excelência para transformar espaços.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid-forms">
+      
+      <section class="card-form">
+        <span class="badge badge-blue">Projetos</span>
+        <h2>Seja um Parceiro</h2>
+        <p style="font-size: 14px; margin-bottom: 25px;">Para estudantes e arquitetos que desejam atender demandas de consultoria e projetos técnicos.</p>
+        
+        <form id="form-tecnico">
+          <div class="form-group">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" required>
+          </div>
+          <div class="form-group">
+            <label>E-mail (Vínculo Hotmart)</label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Categoria Profissional</label>
+            <select name="categoria">
+              <option value="estudante">Estudante de Arquitetura</option>
+              <option value="arquiteto">Arquiteto Credenciado (CAU)</option>
+              <option value="designer">Designer de Interiores</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Link do Portfólio / LinkedIn</label>
+            <input type="url" name="portfolio" placeholder="https://" required>
+          </div>
+          <div class="form-group">
+            <label>Possui MEI ativo?</label>
+            <select name="mei">
+              <option value="sim">Sim, emito Nota Fiscal</option>
+              <option value="nao">Não, mas tenho interesse</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">Enviar Candidatura Técnica</button>
+        </form>
+      </section>
+
+      <section class="card-form">
+        <span class="badge badge-gold">Mobiliário & Decoração</span>
+        <h2>Seja um Fornecedor</h2>
+        <p style="font-size: 14px; margin-bottom: 25px;">Para lojistas e marcas que desejam ver seus produtos em nossos projetos e vídeos 3D.</p>
+        
+        <form id="form-fornecedor">
+          <div class="form-group">
+            <label>Nome da Marca / Empresa</label>
+            <input type="text" name="marca" required>
+          </div>
+          <div class="form-group">
+            <label>Segmento</label>
+            <select name="segmento">
+              <option value="moveis">Móveis / Marcenaria</option>
+              <option value="iluminacao">Iluminação</option>
+              <option value="revestimento">Revestimentos</option>
+              <option value="decoracao">Objetos de Decoração</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Link do Catálogo (Site ou Drive)</label>
+            <input type="url" name="catalogo" placeholder="https://" required>
+          </div>
+          <div class="form-group">
+            <label>Oferece blocos 3D dos produtos?</label>
+            <select name="tem_3d">
+              <option value="sim">Sim, possuo modelos 3D</option>
+              <option value="nao">Não, mas quero produzir</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Proposta de Parceria (Opcional)</label>
+            <textarea name="proposta" rows="3" placeholder="Ex: Cupom de desconto para clientes..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" style="background: var(--accent);">Cadastrar Produto/Marca</button>
+        </form>
+      </section>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 40px; color: #999; font-size: 13px;">
+    © 2026 Independência — Plataforma de Gestão de Projetos e Consultoria.
+  </footer>
+
+  <script>
+    // Configuração dos Webhooks do Make
+    const WEBHOOK_PARCEIROS = 'SEU_WEBHOOK_MAKE_PARCEIROS';
+    const WEBHOOK_FORNECEDORES = 'SEU_WEBHOOK_MAKE_FORNECEDORES';
+
+    function handleForm(e, url) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        alert('Dados enviados com sucesso! Entraremos em contato em breve.');
+        e.target.reset();
+      })
+      .catch(() => alert('Erro ao enviar. Tente novamente.'));
+    }
+
+    document.getElementById('form-tecnico').addEventListener('submit', (e) => handleForm(e, WEBHOOK_PARCEIROS));
+    document.getElementById('form-fornecedor').addEventListener('submit', (e) => handleForm(e, WEBHOOK_FORNECEDORES));
+  </script>
+
+</body>
+</html>
+
