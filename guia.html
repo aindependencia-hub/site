@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia do Projeto — Independência</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F7F3EE; --dark: #1A1714; --warm: #C8A882;
+      --mid: #6B5E52; --light: #E8E0D6; --accent: #8B6F47;
+      --green: #4CAF50; --blue: #2196F3; --orange: #FF9800;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(247,243,238,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light);
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); text-decoration: none; }
+    .nav-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+
+    .hero { padding: 7rem 4rem 4rem; background: var(--dark); text-align: center; }
+    .hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: var(--cream); line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 em { font-style: italic; color: var(--warm); }
+    .hero p { color: rgba(232,224,214,0.6); font-size: 0.95rem; font-weight: 300; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+    .sidebar-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+    .sidebar {
+      position: sticky; top: 64px; height: calc(100vh - 64px);
+      overflow-y: auto; background: var(--dark);
+      padding: 2rem 1.5rem; border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-title { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); margin-bottom: 1rem; margin-top: 1.5rem; }
+    .sidebar-title:first-child { margin-top: 0; }
+
+    .sidebar a {
+      display: block; font-size: 0.8rem; color: rgba(232,224,214,0.55);
+      text-decoration: none; padding: 0.4rem 0;
+      border-left: 2px solid transparent; padding-left: 0.75rem;
+      transition: all 0.2s; line-height: 1.4;
+    }
+    .sidebar a:hover { color: var(--warm); border-left-color: var(--warm); }
+
+    .content { padding: 3rem 4rem; max-width: 860px; }
+
+    .section { margin-bottom: 4rem; }
+
+    .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); margin-bottom: 0.75rem; }
+
+    .section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; margin-bottom: 1.5rem; color: var(--dark); }
+
+    .section p { font-size: 0.92rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; font-weight: 300; }
+
+    .divider { height: 1px; background: var(--light); margin: 3rem 0; }
+
+    /* CARDS */
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .card { border: 1px solid var(--light); padding: 1.5rem; }
+    .card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .card h4 { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .card p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; margin: 0; }
+    .card .badge { display: inline-block; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.5rem; margin-bottom: 0.5rem; }
+    .badge-green { background: rgba(76,175,80,0.1); color: var(--green); }
+    .badge-blue { background: rgba(33,150,243,0.1); color: var(--blue); }
+    .badge-orange { background: rgba(255,152,0,0.1); color: var(--orange); }
+
+    /* FLUXO */
+    .fluxo { margin: 1.5rem 0; }
+    .fluxo-step { display: flex; gap: 1rem; margin-bottom: 0.75rem; align-items: flex-start; }
+    .fluxo-num { width: 28px; height: 28px; background: var(--dark); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 500; flex-shrink: 0; border-radius: 50%; }
+    .fluxo-text { padding-top: 0.2rem; }
+    .fluxo-text strong { font-size: 0.85rem; display: block; margin-bottom: 0.2rem; }
+    .fluxo-text span { font-size: 0.8rem; color: var(--mid); font-weight: 300; }
+    .fluxo-arrow { text-align: center; color: var(--warm); margin: 0.25rem 0 0.25rem 14px; font-size: 0.9rem; }
+
+    /* TABELA */
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; }
+    th { text-align: left; padding: 0.75rem 1rem; background: var(--dark); color: var(--cream); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
+    td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light); color: var(--mid); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+
+    /* CODE */
+    .code-block { background: var(--dark); color: var(--cream); padding: 1.5rem; font-family: monospace; font-size: 0.82rem; line-height: 1.7; margin: 1rem 0; overflow-x: auto; border-left: 3px solid var(--warm); }
+    .code-comment { color: rgba(200,168,130,0.5); }
+
+    /* ALERT */
+    .alert { padding: 1rem 1.2rem; margin: 1rem 0; border-left: 3px solid; font-size: 0.85rem; line-height: 1.6; }
+    .alert-warm { border-color: var(--warm); background: rgba(200,168,130,0.08); color: var(--accent); }
+    .alert-green { border-color: var(--green); background: rgba(76,175,80,0.08); color: #2e7d32; }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; margin: 1rem 0; }
+    .checklist li { padding: 0.5rem 0; border-bottom: 1px solid var(--light); font-size: 0.88rem; color: var(--mid); display: flex; align-items: center; gap: 0.75rem; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-box { width: 18px; height: 18px; border: 1px solid var(--light); flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .content { padding: 2rem 1.5rem; }
+      .cards { grid-template-columns: 1fr; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Independência</a>
+  <a href="index.html" class="nav-link">← Voltar ao site</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-tag">Documento interno</p>
+  <h1>Guia do Projeto<br><em>Independência</em></h1>
+  <p>Tudo que você precisa saber sobre como o projeto funciona — ferramentas, fluxos, próximos passos e integrações.</p>
+</section>
+
+<div class="sidebar-layout">
+
+  <aside class="sidebar">
+    <p class="sidebar-title">Visão geral</p>
+    <a href="#conceito">O conceito</a>
+    <a href="#stack">Stack de ferramentas</a>
+    <a href="#planos">Os 3 planos</a>
+
+    <p class="sidebar-title">Fluxos</p>
+    <a href="#fluxo-cliente">Cliente compra consultoria</a>
+    <a href="#fluxo-biblioteca">Download de planta</a>
+    <a href="#fluxo-parceiro">Parceiro envia projeto</a>
+    <a href="#fluxo-fornecedor">Fornecedor se cadastra</a>
+
+    <p class="sidebar-title">Ferramentas</p>
+    <a href="#github">GitHub Pages</a>
+    <a href="#hotmart">Hotmart</a>
+    <a href="#make">Make</a>
+    <a href="#airtable">Airtable</a>
+    <a href="#calendly">Calendly</a>
+    <a href="#hubspot">HubSpot</a>
+    <a href="#canva">Canva — Mockup</a>
+
+    <p class="sidebar-title">Galeria colaborativa</p>
+    <a href="#cifra">A lógica do Cifra Club</a>
+    <a href="#galeria">Como montar a galeria</a>
+    <a href="#airtable-embed">Embedar no site</a>
+
+    <p class="sidebar-title">Próximos passos</p>
+    <a href="#checklist">Checklist do que falta</a>
+    <a href="#adsense">AdSense & Pixel</a>
+  </aside>
+
+  <main class="content">
+
+    <!-- CONCEITO -->
+    <section class="section" id="conceito">
+      <p class="section-label">Visão geral</p>
+      <h2>O conceito</h2>
+      <p>A Independência é um marketplace de arquitetura e design de interiores com três pilares principais: uma biblioteca gratuita de plantas para captar leads, planos pagos de consultoria para gerar receita, e uma galeria colaborativa da comunidade para crescer organicamente — exatamente como o Cifra Club cresceu com músicas cifradas pela comunidade.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📐</div>
+          <span class="badge badge-green">Gratuito</span>
+          <h4>Biblioteca de plantas</h4>
+          <p>Isca para captar leads. Pessoa baixa, deixa o email, recebe a planta. Você tem o contato dela para nutrir.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💰</div>
+          <span class="badge badge-blue">Receita</span>
+          <h4>Planos de consultoria</h4>
+          <p>Três planos pagos — Ideia no Papel, Residencial/Comercial, Startup Comercial. Pagamento via Hotmart.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <span class="badge badge-orange">Crescimento</span>
+          <h4>Galeria colaborativa</h4>
+          <p>Estudantes e arquitetos enviam projetos. Ganham visibilidade. Biblioteca cresce sozinha.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏪</div>
+          <span class="badge badge-green">Extra</span>
+          <h4>Produtos físicos</h4>
+          <p>Mobiliário e produtos recomendados nas consultorias. Vendidos via Nuvemshop ou como afiliado.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- STACK -->
+    <section class="section" id="stack">
+      <p class="section-label">Infraestrutura</p>
+      <h2>Stack de ferramentas</h2>
+
+      <table>
+        <tr><th>Ferramenta</th><th>Função</th><th>Custo</th></tr>
+        <tr><td><strong>GitHub Pages</strong></td><td>Hospedagem do site — index.html, parceiros.html, guia.html</td><td>Gratuito</td></tr>
+        <tr><td><strong>Hotmart</strong></td><td>Venda dos planos de consultoria + split automático pro arquiteto</td><td>% por venda</td></tr>
+        <tr><td><strong>Make</strong></td><td>Robô de automação — conecta todas as ferramentas</td><td>Gratuito até 1000 tarefas/mês</td></tr>
+        <tr><td><strong>Airtable</strong></td><td>Banco de dados — arquitetos, projetos da galeria, fornecedores</td><td>Gratuito</td></tr>
+        <tr><td><strong>Calendly</strong></td><td>Agendamento das reuniões com arquitetos</td><td>Gratuito</td></tr>
+        <tr><td><strong>Google Meet</strong></td><td>Reuniões entre cliente e arquiteto</td><td>Gratuito</td></tr>
+        <tr><td><strong>Gmail</strong></td><td>Envio automático de plantas e confirmações</td><td>Gratuito</td></tr>
+        <tr><td><strong>HubSpot</strong></td><td>CRM — captura e nutrição de leads</td><td>Gratuito</td></tr>
+        <tr><td><strong>Nuvemshop</strong></td><td>Loja de produtos físicos</td><td>Plano existente</td></tr>
+        <tr><td><strong>Canva</strong></td><td>Template mockup que acompanha cada planta baixada</td><td>Gratuito</td></tr>
+      </table>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PLANOS -->
+    <section class="section" id="planos">
+      <p class="section-label">Produtos</p>
+      <h2>Os 3 planos</h2>
+
+      <table>
+        <tr><th>Plano</th><th>Quem atende</th><th>O que entrega</th><th>Valor</th></tr>
+        <tr>
+          <td><strong>Ideia no Papel</strong></td>
+          <td>Estudantes de arquitetura</td>
+          <td>Croqui + referências visuais + 1 reunião online</td>
+          <td>R$ 97 a R$ 197</td>
+        </tr>
+        <tr>
+          <td><strong>Residencial & Comercial</strong></td>
+          <td>Arquiteto credenciado</td>
+          <td>Planta baixa + projeto completo + orientação técnica</td>
+          <td>R$ 497 a R$ 997</td>
+        </tr>
+        <tr>
+          <td><strong>Startup Comercial</strong></td>
+          <td>Arquiteto + Analista de viabilidade</td>
+          <td>Análise de viabilidade + projeto + documentação</td>
+          <td>R$ 1.500 a R$ 3.000</td>
+        </tr>
+      </table>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FLUXO CLIENTE -->
+    <section class="section" id="fluxo-cliente">
+      <p class="section-label">Fluxos</p>
+      <h2>Cliente compra consultoria</h2>
+
+      <div class="fluxo">
+        <div class="fluxo-step"><div class="fluxo-num">1</div><div class="fluxo-text"><strong>Cliente chega pelo Instagram</strong><span>Vê post com ambiente bonito → clica no link da bio → chega no site</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">2</div><div class="fluxo-text"><strong>Escolhe um plano e compra</strong><span>Clica no botão → vai pro checkout da Hotmart → paga</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">3</div><div class="fluxo-text"><strong>Make detecta a venda</strong><span>Hotmart avisa o Make automaticamente que houve uma compra</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">4</div><div class="fluxo-text"><strong>Make busca arquiteto no Airtable</strong><span>Filtra por especialidade (Residencial, Comercial, Startup) e Status = Disponível</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">5</div><div class="fluxo-text"><strong>Make envia emails automáticos</strong><span>Cliente recebe email com link do Calendly do arquiteto. Arquiteto recebe dados do cliente.</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">6</div><div class="fluxo-text"><strong>Cliente agenda pelo Calendly</strong><span>Escolhe data e horário disponível do arquiteto</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">7</div><div class="fluxo-text"><strong>Calendly cria o Google Meet</strong><span>Link do Meet enviado automaticamente para os dois</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">8</div><div class="fluxo-text"><strong>Reunião acontece</strong><span>Hotmart já dividiu o pagamento automaticamente para o arquiteto</span></div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FLUXO BIBLIOTECA -->
+    <section class="section" id="fluxo-biblioteca">
+      <p class="section-label">Fluxos</p>
+      <h2>Download de planta</h2>
+
+      <div class="fluxo">
+        <div class="fluxo-step"><div class="fluxo-num">1</div><div class="fluxo-text"><strong>Pessoa vê post no Instagram</strong><span>"Baixe a planta do Projeto Aroeira no link da bio"</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">2</div><div class="fluxo-text"><strong>Acessa o site e pesquisa o projeto</strong><span>Usa a barra de busca para encontrar pelo nome</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">3</div><div class="fluxo-text"><strong>Preenche nome e email</strong><span>Modal abre pedindo os dados antes de liberar o download</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">4</div><div class="fluxo-text"><strong>Make recebe os dados via Webhook</strong><span>Webhook do site dispara para o Make</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">5</div><div class="fluxo-text"><strong>Make envia email com planta + mockup</strong><span>PDF da planta + template visual do Canva com identidade da Independência</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">6</div><div class="fluxo-text"><strong>Make cadastra lead no HubSpot</strong><span>Email fica salvo para nutrição futura</span></div></div>
+      </div>
+
+      <div class="alert alert-warm">
+        💡 <strong>Mockup do Canva:</strong> Crie um template no Canva com logo da Independência, nome do projeto, nome do autor e Instagram do autor. Exporte como PDF e hospede no Google Drive. O Make anexa esse PDF a cada email de download.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FLUXO PARCEIRO -->
+    <section class="section" id="fluxo-parceiro">
+      <p class="section-label">Fluxos</p>
+      <h2>Parceiro envia projeto para a galeria</h2>
+
+      <div class="fluxo">
+        <div class="fluxo-step"><div class="fluxo-num">1</div><div class="fluxo-text"><strong>Arquiteto acessa parceiros.html</strong><span>Vê a proposta de colaboração e os benefícios</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">2</div><div class="fluxo-text"><strong>Preenche o formulário de envio</strong><span>Nome do projeto, tipo, descrição, foto, PDF, nome e Instagram</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">3</div><div class="fluxo-text"><strong>Make recebe e cadastra no Airtable</strong><span>Status = "Pendente"</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">4</div><div class="fluxo-text"><strong>Você aprova no Airtable</strong><span>Muda Status de "Pendente" para "Aprovado"</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">5</div><div class="fluxo-text"><strong>Projeto aparece na galeria do site</strong><span>Airtable Gallery View embedado no site atualiza automaticamente</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">6</div><div class="fluxo-text"><strong>Autor ganha visibilidade</strong><span>Nome e @Instagram aparecem no card. Pessoas baixam e seguem o autor.</span></div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CIFRA CLUB -->
+    <section class="section" id="cifra">
+      <p class="section-label">Galeria colaborativa</p>
+      <h2>A lógica do Cifra Club aplicada</h2>
+
+      <p>O Cifra Club cresceu porque resolveu uma dor específica e recorrente — quero tocar essa música mas não tenho a partitura — e deixou a comunidade contribuir. Cada músico que cifrava uma música ganhava crédito e visibilidade.</p>
+
+      <table>
+        <tr><th>Cifra Club</th><th>Independência</th></tr>
+        <tr><td>Tinha uma música popular</td><td>Você posta foto de uma casa bonita no Instagram</td></tr>
+        <tr><td>Músico cifrava a música</td><td>Estudante faz a planta baixa daquela casa</td></tr>
+        <tr><td>Ficava disponível pra baixar</td><td>Planta fica disponível gratuitamente na galeria</td></tr>
+        <tr><td>Quem cifrou ganhou crédito</td><td>Autor aparece com nome e @Instagram no card</td></tr>
+        <tr><td>Pessoa aprendeu a tocar</td><td>Pessoa usa a planta pro seu pedreiro</td></tr>
+        <tr><td>Músico ganhou fãs</td><td>Arquiteto ganhou clientes em potencial</td></tr>
+      </table>
+
+      <div class="alert alert-green">
+        ✅ <strong>O segredo:</strong> Todo mundo ganha. Você ganha conteúdo. O estudante ganha visibilidade. A pessoa ganha uma planta gratuita. A biblioteca cresce sozinha.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AIRTABLE -->
+    <section class="section" id="airtable">
+      <p class="section-label">Ferramentas</p>
+      <h2>Airtable — Como montar</h2>
+
+      <p>Você precisa de <strong>3 tabelas</strong> na sua base do Airtable:</p>
+
+      <table>
+        <tr><th>Tabela</th><th>Pra que serve</th></tr>
+        <tr><td><strong>Arquitetos</strong></td><td>Cadastro dos seus parceiros profissionais — quem atende os clientes</td></tr>
+        <tr><td><strong>Galeria de Projetos</strong></td><td>Projetos enviados pela comunidade para a galeria colaborativa</td></tr>
+        <tr><td><strong>Fornecedores</strong></td><td>Empresas parceiras que aparecem na seção de serviços do site</td></tr>
+      </table>
+
+      <p><strong>Tabela Arquitetos — colunas:</strong></p>
+      <div class="code-block">
+Nome (Texto)
+Especialidade (Seleção: Residencial / Comercial / Startup)
+Email (Email)
+WhatsApp (Telefone)
+Link Calendly (URL)
+Status (Seleção: Disponível / Ocupado)
+      </div>
+
+      <p><strong>Tabela Galeria de Projetos — colunas:</strong></p>
+      <div class="code-block">
+Nome do Projeto (Texto)
+Tipo (Seleção: Residencial Térrea / Sobrado / Apartamento / Comercial Loja / etc)
+Descrição (Texto)
+Autor (Texto)
+Instagram (Texto)
+Email (Email)
+Imagem (URL)
+PDF (URL)
+Observações (Texto longo)
+Status (Seleção: Pendente / Aprovado / Reprovado)
+      </div>
+
+      <p><strong>Tabela Fornecedores — colunas:</strong></p>
+      <div class="code-block">
+Nome da Empresa (Texto)
+Tipo de Serviço (Seleção)
+Descrição (Texto longo)
+Responsável (Texto)
+Email (Email)
+WhatsApp (Telefone)
+Instagram (Texto)
+Site (URL)
+Status (Seleção: Pendente / Aprovado)
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EMBED -->
+    <section class="section" id="airtable-embed">
+      <p class="section-label">Galeria colaborativa</p>
+      <h2>Como embedar a galeria no site</h2>
+
+      <div class="fluxo">
+        <div class="fluxo-step"><div class="fluxo-num">1</div><div class="fluxo-text"><strong>No Airtable, abra a tabela "Galeria de Projetos"</strong><span>Clique em "+" ao lado das views para criar uma nova view</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">2</div><div class="fluxo-text"><strong>Escolha "Gallery View"</strong><span>Configure para mostrar a imagem de capa, nome, autor e Instagram</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">3</div><div class="fluxo-text"><strong>Filtre por Status = "Aprovado"</strong><span>Só projetos aprovados por você aparecem na galeria pública</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">4</div><div class="fluxo-text"><strong>Clique em "Share" → "Embed this view"</strong><span>Copie o código iframe gerado pelo Airtable</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">5</div><div class="fluxo-text"><strong>Cole no parceiros.html</strong><span>Substitua o comentário marcado como "COLE O IFRAME DO AIRTABLE AQUI"</span></div></div>
+      </div>
+
+      <div class="alert alert-warm">
+        💡 O iframe do Airtable atualiza automaticamente. Quando você aprovar um projeto lá, ele aparece no site em segundos — sem precisar alterar o código.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CANVA -->
+    <section class="section" id="canva">
+      <p class="section-label">Ferramentas</p>
+      <h2>Canva — Mockup padronizado</h2>
+
+      <p>Cada planta baixada deve ser acompanhada de um mockup bonito com a identidade da Independência. Isso serve como branding automático — cada arquivo que sai do site carrega sua marca.</p>
+
+      <div class="fluxo">
+        <div class="fluxo-step"><div class="fluxo-num">1</div><div class="fluxo-text"><strong>Crie um template no Canva</strong><span>Formato A4 ou A3 com: Logo da Independência, Nome do projeto, Nome do autor, @Instagram do autor, Site independencia.com.br</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">2</div><div class="fluxo-text"><strong>Exporte como PDF</strong><span>Um PDF por projeto — ou um template genérico que serve para todos</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">3</div><div class="fluxo-text"><strong>Hospede no Google Drive</strong><span>Compartilhe como "Qualquer pessoa com o link" e copie o link</span></div></div>
+        <div class="fluxo-arrow">↓</div>
+        <div class="fluxo-step"><div class="fluxo-num">4</div><div class="fluxo-text"><strong>Configure no Make</strong><span>O Make envia o mockup + a planta juntos no email de cada download</span></div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CHECKLIST -->
+    <section class="section" id="checklist">
+      <p class="section-label">Próximos passos</p>
+      <h2>Checklist do que falta</h2>
+
+      <ul class="checklist">
+        <li><div class="check-box"></div>Criar as 3 tabelas no Airtable (Arquitetos, Galeria, Fornecedores)</li>
+        <li><div class="check-box"></div>Importar os CSVs fictícios no Airtable para testar</li>
+        <li><div class="check-box"></div>Criar Gallery View no Airtable filtrada por Status = Aprovado</li>
+        <li><div class="check-box"></div>Pegar link de embed da galeria e colar no parceiros.html</li>
+        <li><div class="check-box"></div>Criar webhook no Make para receber dados do formulário</li>
+        <li><div class="check-box"></div>Configurar Make para cadastrar projetos no Airtable</li>
+        <li><div class="check-box"></div>Conectar Hotmart ao Make</li>
+        <li><div class="check-box"></div>Configurar Make para enviar email após compra no Hotmart</li>
+        <li><div class="check-box"></div>Criar conta no Calendly e configurar tipos de evento</li>
+        <li><div class="check-box"></div>Criar template mockup no Canva e hospedar no Google Drive</li>
+        <li><div class="check-box"></div>Criar conta no HubSpot e conectar ao Make</li>
+        <li><div class="check-box"></div>Publicar os planos na Hotmart e pegar os links de checkout</li>
+        <li><div class="check-box"></div>Substituir todos os placeholders no index.html e parceiros.html</li>
+        <li><div class="check-box"></div>Criar conta no Google Analytics e adicionar o código no site</li>
+        <li><div class="check-box"></div>Criar Pixel do Facebook e adicionar no site</li>
+        <li><div class="check-box"></div>Solicitar aprovação no Google AdSense quando tiver tráfego</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ADSENSE -->
+    <section class="section" id="adsense">
+      <p class="section-label">Monetização extra</p>
+      <h2>AdSense & Pixel do Facebook</h2>
+
+      <p>Os códigos do Google AdSense, Google Analytics e Pixel do Facebook já estão comentados no código do <strong>index.html</strong>. Quando estiver pronto é só descomentar e colar seu ID.</p>
+
+      <table>
+        <tr><th>Ferramenta</th><th>Onde criar</th><th>Onde colar no site</th></tr>
+        <tr><td>Google Analytics</td><td>analytics.google.com</td><td>No &lt;head&gt; do index.html — comentário marcado</td></tr>
+        <tr><td>Pixel do Facebook</td><td>business.facebook.com</td><td>No &lt;head&gt; do index.html — comentário marcado</td></tr>
+        <tr><td>Google AdSense</td><td>adsense.google.com</td><td>3 posições marcadas no index.html</td></tr>
+      </table>
+
+      <div class="alert alert-warm">
+        ⚠️ <strong>AdSense:</strong> Só solicite aprovação depois que o site tiver conteúdo real e algum tráfego. Sites vazios são reprovados. Foque primeiro em popular a biblioteca de projetos.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
