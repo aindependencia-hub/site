@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Independência — Seu espaço, sua identidade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F3EE;
+      --dark: #1A1714;
+      --warm: #C8A882;
+      --mid: #6B5E52;
+      --light: #E8E0D6;
+      --accent: #8B6F47;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover { color: var(--dark); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3rem 4rem 4rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 340px;
+    }
+
+    .btn-primary {
+      display: block;
+      text-align: center;
+      padding: 1rem 2rem;
+      background: var(--dark);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: block;
+      text-align: center;
+      padding: 1rem 2rem;
+      border: 1px solid var(--mid);
+      color: var(--mid);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--dark);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-label {
+      font-size: 0.7rem;
+      color: var(--warm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(247, 243, 238, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 1.2rem 1.5rem;
+      color: var(--cream);
+    }
+
+    .hero-overlay p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-overlay span {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--light), transparent);
+      margin: 0 4rem;
+    }
+
+    /* COMO FUNCIONA */
+    .steps {
+      padding: 5rem 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      color: var(--dark);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--light);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .step:hover {
+      border-color: var(--warm);
+      transform: translateY(-4px);
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--light);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* PLANOS */
+    .planos {
+      padding: 5rem 4rem;
+      background: var(--dark);
+    }
+
+    .planos .section-tag { color: var(--warm); }
+    .planos .section-title { color: var(--cream); }
+
+    .planos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .plano {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2.5rem 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .plano:hover {
+      border-color: var(--warm);
+      transform: translateY(-6px);
+    }
+
+    .plano-badge {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.2rem;
+    }
+
+    .plano h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .plano-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--warm);
+      margin: 1.2rem 0;
+    }
+
+    .plano-price span {
+      font-size: 1rem;
+      color: var(--mid);
+    }
+
+    .plano p {
+      font-size: 0.85rem;
+      color: rgba(232, 224, 214, 0.6);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .plano ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .plano ul li {
+      font-size: 0.82rem;
+      color: rgba(232, 224, 214, 0.7);
+      padding: 0.4rem 0 0.4rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    .plano ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--warm);
+      font-size: 0.7rem;
+    }
+
+    .btn-plano {
+      display: block;
+      text-align: center;
+      padding: 0.9rem 1.5rem;
+      border: 1px solid var(--warm);
+      color: var(--warm);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-plano:hover, .plano.destaque .btn-plano {
+      background: var(--warm);
+      color: var(--dark);
+    }
+
+    .plano.destaque {
+      border-color: var(--warm);
+      background: rgba(200, 168, 130, 0.06);
+    }
+
+    /* PARA QUEM */
+    .para-quem-wrap {
+      padding: 5rem 4rem;
+    }
+
+    .para-quem {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .para-quem-text .section-title { text-align: left; margin-bottom: 2rem; }
+
+    .para-quem-items { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .para-quem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      border: 1px solid var(--light);
+      transition: border-color 0.3s;
+    }
+
+    .para-quem-item:hover { border-color: var(--warm); }
+
+    .para-quem-item .icon { font-size: 1.4rem; flex-shrink: 0; }
+
+    .para-quem-item h4 {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .para-quem-item p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .para-quem-visual {
+      background: var(--dark);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-text {
+      text-align: center;
+      color: var(--cream);
+      padding: 2rem;
+    }
+
+    .visual-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    .visual-text span {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-top: 1.5rem;
+    }
+
+    /* PARCEIROS */
+    .parceiros {
+      padding: 5rem 4rem;
+      background: var(--light);
+      text-align: center;
+    }
+
+    .parceiros-sub {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .btn-parceiro {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--dark);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-parceiro:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 4rem;
+      background: var(--dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .logo { color: var(--cream); }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232, 224, 214, 0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--warm); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(232, 224, 214, 0.3);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-link { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3rem 1.5rem; }
+      .hero-right { height: 260px; }
+      .hero-ctas { max-width: 100%; }
+      .steps, .para-quem-wrap, .parceiros { padding: 3rem 1.5rem; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .planos { padding: 3rem 1.5rem; }
+      .planos-grid { grid-template-columns: 1fr; }
+      .para-quem { grid-template-columns: 1fr; gap: 2rem; }
+      .para-quem-visual { display: none; }
+      .para-quem-text .section-title { text-align: center; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+      .divider { margin: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">Independência</a>
+    <a href="#planos" class="nav-link">Ver Planos</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Arquitetura & Consultoria</p>
+      <h1 class="hero-title">
+        Seu espaço,<br>
+        sua <em>identidade.</em>
+      </h1>
+      <p class="hero-sub">
+        Conectamos você a arquitetos e designers para transformar 
+        seu ambiente — residencial ou comercial — com quem realmente entende.
+      </p>
+      <div class="hero-ctas">
+        <a href="SEU_LINK_HOTMART_CROQUI" target="_blank" class="btn-primary">
+          Solicitar Croqui — a partir de R$ 97
+        </a>
+        <p class="hero-label">Primeira ideia rápida e acessível</p>
+        <a href="#planos" class="btn-secondary">
+          Ver consultorias completas
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img
+        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
+        alt="Ambiente moderno"
+        class="hero-img"
+      />
+      <div class="hero-overlay">
+        <p>"Toda grande obra começa com uma ideia."</p>
+        <span>Independência</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMO FUNCIONA -->
+  <section class="steps">
+    <p class="section-tag">Como funciona</p>
+    <h2 class="section-title">Simples como deve ser</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Escolha seu plano</h3>
+        <p>Selecione o pacote ideal para o seu momento — desde uma ideia inicial até um projeto completo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Agende sua reunião</h3>
+        <p>Após a compra você recebe um link para agendar com seu especialista no horário que preferir.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Transforme seu espaço</h3>
+        <p>Receba orientações, croquis e projetos para finalmente realizar a transformação que você sonha.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLANOS -->
+  <section class="planos" id="planos">
+    <p class="section-tag">Nossos planos</p>
+    <h2 class="section-title">Escolha o seu ponto de partida</h2>
+    <div class="planos-grid">
+
+      <div class="plano">
+        <p class="plano-badge">● Básico — Estudantes de Arquitetura</p>
+        <h3>Ideia<br>no Papel</h3>
+        <div class="plano-price">R$ 97 <span>a R$ 197</span></div>
+        <p>Quer uma ideia do que seu espaço pode se tornar? Nossos estudantes entregam croqui criativo e referências visuais.</p>
+        <ul>
+          <li>1 reunião online</li>
+          <li>Croqui do ambiente</li>
+          <li>Referências visuais</li>
+          <li>Sugestões de melhoria</li>
+        </ul>
+        <a href="SEU_LINK_HOTMART_BASICO" target="_blank" class="btn-plano">Solicitar agora</a>
+      </div>
+
+      <div class="plano destaque">
+        <p class="plano-badge">★ Mais popular — Arquiteto Credenciado</p>
+        <h3>Residencial<br>& Comercial</h3>
+        <div class="plano-price">R$ 497 <span>a R$ 997</span></div>
+        <p>Arquiteto formado entrega planta baixa, orientação técnica e projeto completo para sua casa ou negócio.</p>
+        <ul>
+          <li>1 a 2 reuniões online ou presencial</li>
+          <li>Planta baixa</li>
+          <li>Projeto detalhado</li>
+          <li>Orientação técnica completa</li>
+        </ul>
+        <a href="SEU_LINK_HOTMART_RESIDENCIAL" target="_blank" class="btn-plano">Solicitar agora</a>
+      </div>
+
+      <div class="plano">
+        <p class="plano-badge">◆ Premium — Arquiteto + Analista</p>
+        <h3>Startup<br>Comercial</h3>
+        <div class="plano-price">R$ 1.500 <span>a R$ 3.000</span></div>
+        <p>Quer montar um negócio do zero? Análise de viabilidade, projeto arquitetônico e toda documentação necessária.</p>
+        <ul>
+          <li>Análise de viabilidade do negócio</li>
+          <li>Projeto arquitetônico comercial</li>
+          <li>Orientação de custos</li>
+          <li>Documentação e burocracia</li>
+        </ul>
+        <a href="SEU_LINK_HOTMART_STARTUP" target="_blank" class="btn-plano">Solicitar agora</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="para-quem-wrap">
+    <div class="para-quem">
+      <div class="para-quem-text">
+        <p class="section-tag">Para quem é</p>
+        <h2 class="section-title">Você se identifica<br>com algum desses?</h2>
+        <div class="para-quem-items">
+          <div class="para-quem-item">
+            <span class="icon">🏠</span>
+            <div>
+              <h4>Quero reformar minha casa</h4>
+              <p>Tem um espaço que nunca ficou do jeito que você queria. Chegou a hora de resolver.</p>
+            </div>
+          </div>
+          <div class="para-quem-item">
+            <span class="icon">🏪</span>
+            <div>
+              <h4>Quero melhorar meu negócio</h4>
+              <p>Seu comércio precisa de uma cara nova. Um projeto profissional faz toda a diferença nas vendas.</p>
+            </div>
+          </div>
+          <div class="para-quem-item">
+            <span class="icon">💡</span>
+            <div>
+              <h4>Tenho uma ideia e quero tirar do papel</h4>
+              <p>A ideia está na cabeça mas você não sabe como estruturar. A gente coloca no papel por você.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="para-quem-visual">
+        <div class="visual-text">
+          <p>"Independência não é só um nome. É o que você conquista quando tem o projeto certo nas mãos."</p>
+          <span>Nossa missão</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARCEIROS -->
+  <section class="parceiros">
+    <p class="section-tag">Seja um parceiro</p>
+    <h2 class="section-title">Você é arquiteto ou estudante?</h2>
+    <p class="parceiros-sub">
+      Cadastre-se na nossa plataforma, defina sua disponibilidade e comece a atender clientes que já chegam prontos para contratar.
+    </p>
+    <a href="SEU_LINK_GOOGLE_FORMS" target="_blank" class="btn-parceiro">
+      Quero me cadastrar como parceiro
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="logo">Independência</a>
+    <div class="footer-links">
+      <a href="https://instagram.com/SEU_INSTAGRAM" target="_blank">Instagram</a>
+      <a href="mailto:SEU_EMAIL">Contato</a>
+      <a href="SEU_LINK_NUVEMSHOP" target="_blank">Loja</a>
+    </div>
+    <p class="footer-copy">© 2025 Independência. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
