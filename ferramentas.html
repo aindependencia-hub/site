@@ -6,155 +6,178 @@
     <title>Fluxo de Trabalho - A Independência Hub</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Ajuste para manter a cor de fundo idêntica ao seu site principal */
+        /* Paleta de cores baseada no seu site */
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            background-color: #0d1117; /* Cor escura padrão do GitHub/Seu site */
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #0d1117; 
             color: #c9d1d9; 
             margin: 0; 
             padding: 0; 
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
-        header h1 { color: #f0f6fc; }
+        header { text-align: center; margin-bottom: 50px; }
+        header h1 { color: #f0f6fc; font-size: 2.5rem; margin-bottom: 10px; }
+        header p { color: #8b949e; }
 
-        .etapa { 
-            margin-bottom: 50px; 
-            border-left: 2px solid #30363d; 
-            padding-left: 30px; 
-            position: relative; 
+        /* Grid de Blocos igual às páginas citadas */
+        .grid-ferramentas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-        .etapa::before { 
-            content: ''; 
-            position: absolute; 
-            left: -7px; 
-            top: 0; 
-            width: 12px; 
-            height: 12px; 
-            background: #58a6ff; 
-            border-radius: 50%; 
-            box-shadow: 0 0 8px #58a6ff;
+
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
-        .ferramenta-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 15px; 
-            flex-wrap: wrap;
-            gap: 10px;
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
         }
-        .etapa h2 { margin: 0; font-size: 1.3em; color: #58a6ff; text-transform: uppercase; }
-        .etapa p { margin: 10px 0; color: #8b949e; text-align: justify; }
-        
+
+        .etapa-num {
+            font-size: 0.8rem;
+            color: #58a6ff;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card h2 { margin: 0 0 15px 0; font-size: 1.4rem; color: #f0f6fc; }
+        .card p { font-size: 0.95rem; color: #8b949e; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+
         .btn-link { 
-            display: inline-block; 
-            padding: 8px 16px; 
+            display: block; 
+            text-align: center;
+            padding: 10px; 
             background: #21262d; 
-            color: #58a6ff; 
+            color: #c9d1d9; 
             text-decoration: none; 
             border: 1px solid #30363d;
             border-radius: 6px; 
-            font-size: 0.85em; 
+            font-weight: 600;
             transition: 0.2s; 
         }
-        .btn-link:hover { background: #30363d; border-color: #8b949e; }
+        .btn-link:hover { background: #30363d; color: #58a6ff; border-color: #58a6ff; }
         
-        .no-link { font-size: 0.8em; color: #484f58; text-transform: uppercase; font-weight: bold; }
-
-        /* Seção Tutorial Canva */
-        .tutorial-reels { 
-            background: #161b22; 
-            padding: 30px; 
-            border-radius: 10px; 
-            margin-top: 60px; 
-            border: 1px solid #30363d;
+        .no-link { 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #484f58; 
+            padding: 10px;
+            border: 1px dashed #30363d;
+            border-radius: 6px;
         }
-        .tutorial-reels h3 { margin-top: 0; color: #f0f6fc; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-        .tutorial-reels ul { padding-left: 20px; color: #8b949e; }
-        .tutorial-reels li { margin-bottom: 12px; }
-        .tutorial-reels strong { color: #f0f6fc; }
 
-        footer { text-align: center; margin-top: 50px; padding-bottom: 40px; }
+        /* Bloco Especial Canva (Full Width) */
+        .bloco-final {
+            margin-top: 40px;
+            background: linear-gradient(145deg, #161b22, #0d1117);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+        }
+        .bloco-final h3 { color: #58a6ff; margin-top: 0; }
+        .bloco-final ul { list-style: none; padding: 0; }
+        .bloco-final li { margin-bottom: 15px; padding-left: 20px; position: relative; }
+        .bloco-final li::before { content: "→"; position: absolute; left: 0; color: #58a6ff; }
+
+        footer { text-align: center; margin-top: 60px; padding: 40px 0; border-top: 1px solid #30363d; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Cronograma de Projeto & Apps</h1>
-            <p>Fluxo de trabalho da arquitetura ao vídeo final</p>
+            <h1>Workflow Arquitetônico</h1>
+            <p>A sequência cronológica das ferramentas que utilizo nos meus projetos.</p>
         </header>
 
-        <!-- Etapa 1 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>1. Escala e Precisão Técnica</h2>
-                <span class="no-link">Sweet Home 3D</span>
+        <div class="grid-ferramentas">
+            <!-- Bloco 1 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 01</span>
+                    <h2>Sweet Home 3D</h2>
+                    <p>Onde tudo nasce. Utilizo para criar a planta técnica com precisão milimétrica, definindo escalas e metragens reais para garantir a viabilidade do projeto.</p>
+                </div>
+                <span class="no-link">Software Local Desktop</span>
             </div>
-            <p>O processo começa com o <strong>Sweet Home 3D</strong> para garantir que o projeto tenha fundamentos reais. Aqui, focamos na precisão das metragens e na criação de plantas baixas funcionais em escala. É a base técnica indispensável para evitar erros de execução futura.</p>
-        </section>
 
-        <!-- Etapa 2 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>2. Modelagem e Volumetria</h2>
-                <a href="https://sketchup.com" target="_blank" class="btn-link">Acessar SketchUp</a>
+            <!-- Bloco 2 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 02</span>
+                    <h2>SketchUp</h2>
+                    <p>Fase de volumetria. Aqui dou corpo ao projeto 3D, estudando massas, alturas e a estrutura arquitetônica baseada na planta técnica anterior.</p>
+                </div>
+                <a href="https://sketchup.com" target="_blank" class="btn-link">Acessar Web App</a>
             </div>
-            <p>No <strong>SketchUp</strong>, transformamos o 2D em 3D. Esta fase é dedicada à volumetria, onde definimos as massas, alturas e a estrutura espacial do projeto. É o esqueleto visual que servirá de guia para todos os outros softwares de imagem.</p>
-        </section>
 
-        <!-- Etapa 3 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>3. Humanização do Conceito</h2>
+            <!-- Bloco 3 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 03</span>
+                    <h2>Rayon</h2>
+                    <p>Humanização visual. Transformo o desenho técnico em plantas humanizadas ricas em detalhes, texturas e cores para facilitar a compreensão do conceito.</p>
+                </div>
                 <a href="https://rayon.design" target="_blank" class="btn-link">Acessar Rayon</a>
             </div>
-            <p>Com o <strong>Rayon</strong>, humanizamos as plantas. Adicionamos texturas, cores e mobiliário que facilitam a leitura visual. O objetivo aqui é traduzir a frieza técnica em algo acolhedor e compreensível para a apresentação do conceito ao cliente.</p>
-        </section>
 
-        <!-- Etapa 4 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>4. Renderização de Alta Performance</h2>
-                <span class="no-link">D5 Render</span>
+            <!-- Bloco 4 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 04</span>
+                    <h2>D5 Render</h2>
+                    <p>Poder de renderização. Aplicação de iluminação real e materiais de alta fidelidade para gerar as imagens que definem o realismo do ambiente.</p>
+                </div>
+                <span class="no-link">Processamento via GPU</span>
             </div>
-            <p>O <strong>D5 Design</strong> entra para dar o salto de qualidade fotorrealista. Aplicamos iluminação global e materiais complexos. O render estático gerado aqui é o que define o "look and feel" final da arquitetura, preparando a cena para o pós-processamento.</p>
-        </section>
 
-        <!-- Etapa 5 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>5. Refinamento Realista (IA)</h2>
-                <span class="no-link">Nanobanana</span>
+            <!-- Bloco 5 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 05</span>
+                    <h2>Nanobanana</h2>
+                    <p>Otimização por IA. Refino as imagens da volumetria criando detalhes ultra-realistas que elevam o impacto visual final do projeto.</p>
+                </div>
+                <span class="no-link">Plataforma Web IA</span>
             </div>
-            <p>O <strong>Nanobanana</strong> é utilizado para refinar as imagens da volumetria. Através de algoritmos de IA, ele interpreta os blocos 3D e adiciona detalhes de realismo extremo que muitas vezes a renderização comum demora horas para processar, agilizando o fluxo de criação.</p>
-        </section>
 
-        <!-- Etapa 6 -->
-        <section class="etapa">
-            <div class="ferramenta-header">
-                <h2>6. Dinâmica e Movimento de Vídeo</h2>
+            <!-- Bloco 6 -->
+            <div class="card">
+                <div>
+                    <span class="etapa-num">Etapa 06</span>
+                    <h2>Leonardo.ai</h2>
+                    <p>Cinematografia. Transformo imagens estáticas em vídeos dinâmicos com movimento de luz e câmera, preparando o conteúdo para apresentações imersivas.</p>
+                </div>
                 <a href="https://leonardo.ai" target="_blank" class="btn-link">Acessar Leonardo.ai</a>
             </div>
-            <p>Para a finalização, usamos o <strong>Leonardo.ai</strong>. Esta ferramenta transforma as imagens estáticas em pequenos clipes cinematográficos, criando movimentos de câmera fluidos e vida ao ambiente, essencial para a montagem de vídeos imersivos.</p>
-        </section>
+        </div>
 
-        <!-- Tutorial Canva -->
-        <section class="tutorial-reels">
-            <h3>Produção Final: Reels e YouTube</h3>
-            <p>Agora, unimos todas as saídas no <a href="https://canva.com" target="_blank" style="color: #58a6ff;">Canva</a> para criar o conteúdo de divulgação:</p>
+        <!-- Bloco Final Estilo Reels -->
+        <div class="bloco-final">
+            <h3>Finalização: Reels & YouTube (Canva)</h3>
+            <p>Com todos os assets prontos, utilizo o <a href="https://canva.com" style="color:#58a6ff; text-decoration:none;">Canva</a> como minha central de edição final:</p>
             <ul>
-                <li><strong>Montagem para Reels:</strong> No Canva, use o template "Vídeo para Dispositivos Móveis". Importe o vídeo do Leonardo.ai como fundo e sobreponha a planta humanizada do Rayon com transparência para mostrar o "antes e depois" da volumetria.</li>
-                <li><strong>Narrativa para YouTube:</strong> Use as imagens do Nanobanana em alta resolução para fazer zooms lentos (efeito Ken Burns) enquanto explica os detalhes técnicos da planta feita no Sweet Home 3D.</li>
-                <li><strong>Integração de Produtos:</strong> Utilize a biblioteca de elementos do Canva para sobrepor produtos reais (como luminárias ou decorações específicas) sobre as imagens renderizadas, criando diferentes variações de ambiente rapidamente.</li>
+                <li><strong>Narrativa de Reels:</strong> Sobreposição da planta Rayon com o vídeo do Leonardo.ai para criar transições de impacto.</li>
+                <li><strong>YouTube Hub:</strong> Montagem de vídeos explicativos unindo a técnica do Sweet Home 3D com o realismo do Nanobanana.</li>
+                <li><strong>Variações Rápidas:</strong> Teste de diferentes mobílias e decorações usando elementos gráficos sobre os renders profissionais.</li>
             </ul>
-        </section>
+            <a href="https://canva.com" target="_blank" class="btn-link" style="margin-top: 20px;">Abrir Canva para Edição</a>
+        </div>
 
         <footer>
-            <a href="index.html" class="btn-link">← Voltar para o Hub</a>
+            <a href="index.html" style="color: #8b949e; text-decoration: none;">← Voltar ao Início</a>
         </footer>
     </div>
 
