@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos — Ecossistema Independência</title>
+  <style>
+    :root {
+      --cream: #FDFBF7;
+      --dark: #1A1A1A;
+      --accent: #8C7355;
+      --text: #4A4A4A;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); text-align: center; padding: 50px 20px; }
+    .pricing-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+    .card { background: white; padding: 40px; border-radius: 12px; width: 350px; border: 1px solid #eee; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+    .card h2 { font-size: 24px; color: var(--dark); margin-bottom: 15px; }
+    .price { font-size: 36px; font-weight: bold; color: var(--accent); margin-bottom: 20px; }
+    .features { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; }
+    .features li { margin-bottom: 10px; font-size: 15px; }
+    .features li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
+    .btn { display: block; padding: 15px; background: var(--dark); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+    .btn:hover { background: var(--accent); }
+    .highlight { border: 2px solid var(--accent); transform: scale(1.05); }
+  </style>
+</head>
+<body>
+
+  <h1>Soluções para sua Obra</h1>
+  <p>Escolha entre o projeto pronto para execução ou uma consultoria personalizada.</p>
+
+  <div class="pricing-container">
+    
+    <div class="card highlight">
+      <h2>Projeto Técnico PDF</h2>
+      <div class="price">R$ 197</div>
+      <p>Download imediato do guia técnico completo.</p>
+      <ul class="features">
+        <li>Planta Baixa com medidas (Cotas)</li>
+        <li>Cortes e Fachadas detalhadas</li>
+        <li>Planta de Cobertura</li>
+        <li>Quadro de Portas e Janelas</li>
+      </ul>
+      <a href="SEU_LINK_HOTMART" class="btn">Comprar Projeto Agora</a>
+    </div>
+
+    <div class="card">
+      <h2>Consultoria Técnica</h2>
+      <div class="price">R$ 450</div>
+      <p>Reunião de 1 hora via vídeo com Especialista.</p>
+      <ul class="features">
+        <li>Análise do seu terreno</li>
+        <li>Tira-dúvidas sobre materiais</li>
+        <li>Ajustes rápidos de layout</li>
+        <li>Orientação para aprovação legal</li>
+      </ul>
+      <a href="SEU_LINK_CALENDLY" class="btn">Agendar Horário</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
