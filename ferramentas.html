@@ -4,109 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluxo de Trabalho - A Independência Hub</title>
-    <!-- Referência ao CSS original do site -->
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos baseados no conceito.html para manter a identidade visual */
-        body { font-family: sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+        /* Ajuste para manter a cor de fundo idêntica ao seu site principal */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            background-color: #0d1117; /* Cor escura padrão do GitHub/Seu site */
+            color: #c9d1d9; 
+            margin: 0; 
+            padding: 0; 
+        }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 50px; }
         
-        .etapa { margin-bottom: 60px; border-left: 4px solid #333; padding-left: 30px; position: relative; }
-        .etapa::before { content: ''; position: absolute; left: -12px; top: 0; width: 20px; height: 20px; background: #333; border-radius: 50%; }
+        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+        header h1 { color: #f0f6fc; }
+
+        .etapa { 
+            margin-bottom: 50px; 
+            border-left: 2px solid #30363d; 
+            padding-left: 30px; 
+            position: relative; 
+        }
+        .etapa::before { 
+            content: ''; 
+            position: absolute; 
+            left: -7px; 
+            top: 0; 
+            width: 12px; 
+            height: 12px; 
+            background: #58a6ff; 
+            border-radius: 50%; 
+            box-shadow: 0 0 8px #58a6ff;
+        }
         
-        .ferramenta-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .etapa h2 { margin: 0; font-size: 1.5em; text-transform: uppercase; letter-spacing: 1px; }
-        .etapa p { margin: 10px 0; color: #555; text-align: justify; }
+        .ferramenta-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .etapa h2 { margin: 0; font-size: 1.3em; color: #58a6ff; text-transform: uppercase; }
+        .etapa p { margin: 10px 0; color: #8b949e; text-align: justify; }
         
-        .btn-link { display: inline-block; padding: 8px 15px; background: #333; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.85em; transition: 0.3s; }
-        .btn-link:hover { background: #555; }
+        .btn-link { 
+            display: inline-block; 
+            padding: 8px 16px; 
+            background: #21262d; 
+            color: #58a6ff; 
+            text-decoration: none; 
+            border: 1px solid #30363d;
+            border-radius: 6px; 
+            font-size: 0.85em; 
+            transition: 0.2s; 
+        }
+        .btn-link:hover { background: #30363d; border-color: #8b949e; }
         
-        .no-link { font-size: 0.85em; color: #999; font-style: italic; }
+        .no-link { font-size: 0.8em; color: #484f58; text-transform: uppercase; font-weight: bold; }
 
         /* Seção Tutorial Canva */
-        .tutorial-reels { background: #f4f4f4; padding: 30px; border-radius: 8px; margin-top: 80px; }
-        .tutorial-reels h3 { margin-top: 0; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        .tutorial-reels ul { padding-left: 20px; }
-        .tutorial-reels li { margin-bottom: 10px; }
+        .tutorial-reels { 
+            background: #161b22; 
+            padding: 30px; 
+            border-radius: 10px; 
+            margin-top: 60px; 
+            border: 1px solid #30363d;
+        }
+        .tutorial-reels h3 { margin-top: 0; color: #f0f6fc; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .tutorial-reels ul { padding-left: 20px; color: #8b949e; }
+        .tutorial-reels li { margin-bottom: 12px; }
+        .tutorial-reels strong { color: #f0f6fc; }
+
+        footer { text-align: center; margin-top: 50px; padding-bottom: 40px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Cronograma de Projeto e Ferramentas</h1>
-            <p>Do conceito inicial à finalização cinematográfica</p>
+            <h1>Cronograma de Projeto & Apps</h1>
+            <p>Fluxo de trabalho da arquitetura ao vídeo final</p>
         </header>
 
-        <!-- Etapa 1: Concepção e Medição -->
+        <!-- Etapa 1 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>1. Concepção e Escala Técnica</h2>
-                <span class="no-link">Software Local</span>
+                <h2>1. Escala e Precisão Técnica</h2>
+                <span class="no-link">Sweet Home 3D</span>
             </div>
-            <p><strong>Sweet Home 3D:</strong> O ponto de partida técnico. Nesta fase, criamos as plantas baixas rigorosamente em escala, definindo todas as metragens reais do ambiente. É aqui que o layout funcional nasce antes de qualquer detalhamento estético.</p>
+            <p>O processo começa com o <strong>Sweet Home 3D</strong> para garantir que o projeto tenha fundamentos reais. Aqui, focamos na precisão das metragens e na criação de plantas baixas funcionais em escala. É a base técnica indispensável para evitar erros de execução futura.</p>
         </section>
 
-        <!-- Etapa 2: Volumetria -->
+        <!-- Etapa 2 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>2. Volumetria e Estrutura 3D</h2>
+                <h2>2. Modelagem e Volumetria</h2>
                 <a href="https://sketchup.com" target="_blank" class="btn-link">Acessar SketchUp</a>
             </div>
-            <p><strong>SketchUp:</strong> Com as medidas definidas, subimos as paredes e criamos a massa do projeto. Esta etapa foca na volumetria, permitindo visualizar a relação espacial de móveis, janelas e estruturas arquitetônicas em três dimensões.</p>
+            <p>No <strong>SketchUp</strong>, transformamos o 2D em 3D. Esta fase é dedicada à volumetria, onde definimos as massas, alturas e a estrutura espacial do projeto. É o esqueleto visual que servirá de guia para todos os outros softwares de imagem.</p>
         </section>
 
-        <!-- Etapa 3: Humanização -->
+        <!-- Etapa 3 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>3. Humanização e Layout Visual</h2>
+                <h2>3. Humanização do Conceito</h2>
                 <a href="https://rayon.design" target="_blank" class="btn-link">Acessar Rayon</a>
             </div>
-            <p><strong>Rayon:</strong> Transformamos a planta técnica em uma planta humanizada atraente. Ideal para apresentações de conceito onde as cores, texturas e mobiliário dão vida ao desenho técnico, tornando-o compreensível para o cliente final.</p>
+            <p>Com o <strong>Rayon</strong>, humanizamos as plantas. Adicionamos texturas, cores e mobiliário que facilitam a leitura visual. O objetivo aqui é traduzir a frieza técnica em algo acolhedor e compreensível para a apresentação do conceito ao cliente.</p>
         </section>
 
-        <!-- Etapa 4: Renderização -->
+        <!-- Etapa 4 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>4. Fotorrealismo e Materiais</h2>
-                <span class="no-link">Aplicação Desktop</span>
+                <h2>4. Renderização de Alta Performance</h2>
+                <span class="no-link">D5 Render</span>
             </div>
-            <p><strong>D5 Render:</strong> O motor de renderização. Aqui aplicamos a iluminação realista e materiais (vidro, madeira, tecidos) para gerar as imagens de alta qualidade que mostram exatamente como o ambiente ficará após a construção.</p>
+            <p>O <strong>D5 Design</strong> entra para dar o salto de qualidade fotorrealista. Aplicamos iluminação global e materiais complexos. O render estático gerado aqui é o que define o "look and feel" final da arquitetura, preparando a cena para o pós-processamento.</p>
         </section>
 
-        <!-- Etapa 5: Inteligência Visual -->
+        <!-- Etapa 5 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>5. Refinamento de Imagem com IA</h2>
-                <span class="no-link">Acesso via Web</span>
+                <h2>5. Refinamento Realista (IA)</h2>
+                <span class="no-link">Nanobanana</span>
             </div>
-            <p><strong>Nanobanana:</strong> Utilizamos a inteligência artificial para elevar o nível das imagens geradas na volumetria. O objetivo é criar versões ultra-realistas de cantos específicos ou detalhes que o render tradicional pode não captar com perfeição.</p>
+            <p>O <strong>Nanobanana</strong> é utilizado para refinar as imagens da volumetria. Através de algoritmos de IA, ele interpreta os blocos 3D e adiciona detalhes de realismo extremo que muitas vezes a renderização comum demora horas para processar, agilizando o fluxo de criação.</p>
         </section>
 
-        <!-- Etapa 6: Animação e Movimento -->
+        <!-- Etapa 6 -->
         <section class="etapa">
             <div class="ferramenta-header">
-                <h2>6. Geração de Vídeos e Dinâmica</h2>
+                <h2>6. Dinâmica e Movimento de Vídeo</h2>
                 <a href="https://leonardo.ai" target="_blank" class="btn-link">Acessar Leonardo.ai</a>
             </div>
-            <p><strong>Leonardo.ai:</strong> A última etapa antes da edição final. Esta IA permite dar movimento às imagens estáticas anteriores, gerando pequenos clipes de vídeo que simulam o caminhar pelo ambiente ou o movimento da luz.</p>
+            <p>Para a finalização, usamos o <strong>Leonardo.ai</strong>. Esta ferramenta transforma as imagens estáticas em pequenos clipes cinematográficos, criando movimentos de câmera fluidos e vida ao ambiente, essencial para a montagem de vídeos imersivos.</p>
         </section>
 
-        <!-- Seção Especial: Edição Final no Canva -->
+        <!-- Tutorial Canva -->
         <section class="tutorial-reels">
-            <h3>Preparação Final: Reels e YouTube</h3>
-            <p>Para unificar tudo e criar seu conteúdo para o <strong>Instagram (Reels)</strong> ou <strong>YouTube</strong>, o <a href="https://www.canva.com/" target="_blank">Canva</a> é a central de montagem:</p>
+            <h3>Produção Final: Reels e YouTube</h3>
+            <p>Agora, unimos todas as saídas no <a href="https://canva.com" target="_blank" style="color: #58a6ff;">Canva</a> para criar o conteúdo de divulgação:</p>
             <ul>
-                <li><strong>Organização de Mídia:</strong> Faça o upload das plantas do Rayon (Conceito), os Renders do D5 (Estático) e os vídeos do Leonardo.ai (Movimento).</li>
-                <li><strong>Formatação para Reels:</strong> Use o formato 1080x1920. Comece com um gancho rápido usando a planta humanizada e faça uma transição "dissolver" para o vídeo realista gerado pela IA.</li>
-                <li><strong>YouTube (Horizontal):</strong> No formato 1920x1080, crie capítulos. Use a planta baixa do Sweet Home 3D para explicar as medidas e depois alterne para as imagens do Nanobanana para mostrar o resultado final.</li>
-                <li><strong>Dica Pro:</strong> Adicione trilhas sonoras que combinem com o estilo do projeto (ex: Lo-fi para projetos modernos ou música clássica para luxo) diretamente no editor de vídeo do Canva.</li>
+                <li><strong>Montagem para Reels:</strong> No Canva, use o template "Vídeo para Dispositivos Móveis". Importe o vídeo do Leonardo.ai como fundo e sobreponha a planta humanizada do Rayon com transparência para mostrar o "antes e depois" da volumetria.</li>
+                <li><strong>Narrativa para YouTube:</strong> Use as imagens do Nanobanana em alta resolução para fazer zooms lentos (efeito Ken Burns) enquanto explica os detalhes técnicos da planta feita no Sweet Home 3D.</li>
+                <li><strong>Integração de Produtos:</strong> Utilize a biblioteca de elementos do Canva para sobrepor produtos reais (como luminárias ou decorações específicas) sobre as imagens renderizadas, criando diferentes variações de ambiente rapidamente.</li>
             </ul>
         </section>
 
-        <footer style="text-align: center; margin-top: 50px;">
-            <a href="index.html" class="btn-link">Voltar ao Site</a>
+        <footer>
+            <a href="index.html" class="btn-link">← Voltar para o Hub</a>
         </footer>
     </div>
 
