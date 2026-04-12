@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Executivo Aroeira | Independência</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37;
+            --text: #333;
+            --light: #f4f4f4;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; color: var(--text); }
+        
+        /* Hero Section - A parte que vende de cara */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('sua-foto-da-casa.jpg');
+            background-size: cover; background-position: center;
+            color: white; padding: 100px 20px; text-align: center;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+
+        /* Botão de Checkout Hotmart */
+        .btn-checkout {
+            background-color: #f04e23; /* Cor oficial Hotmart ou use var(--accent) */
+            color: white; padding: 20px 40px; text-decoration: none;
+            font-size: 1.3rem; font-weight: bold; border-radius: 50px;
+            display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(240, 78, 35, 0.4);
+        }
+        .btn-checkout:hover { transform: scale(1.05); background-color: #d6431c; }
+
+        /* O que vem no projeto */
+        .features { padding: 60px 20px; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-item { text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 10px; }
+        .feature-item i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+
+        /* Seção do Vídeo */
+        .video-container { background: var(--light); padding: 60px 20px; text-align: center; }
+        .video-wrapper { max-width: 800px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        footer { text-align: center; padding: 40px; background: var(--primary); color: white; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>Projeto Casa Aroeira</h1>
+        <p>Economize até 30% na sua obra com um projeto arquitetônico executivo completo e otimizado.</p>
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn-checkout">COMPRAR AGORA</a>
+    </section>
+
+    <div class="features">
+        <div class="feature-item">
+            <i class="fas fa-file-pdf"></i>
+            <h3>PDF Executivo</h3>
+            <p>Plantas de corte, fachadas e detalhes técnicos para a prefeitura e pedreiros.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-pencil-ruler"></i>
+            <h3>Arquivos DWG</h3>
+            <p>Receba o arquivo editável para ajustes com seu engenheiro local.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-list-ol"></i>
+            <h3>Lista de Materiais</h3>
+            <p>Saiba exatamente quanto de cimento, tijolo e ferragem você vai usar.</p>
+        </div>
+    </div>
+
+    <section class="video-container">
+        <h2>Veja o Tour Completo</h2>
+        <div class="video-wrapper">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/ID_DO_SEU_VIDEO" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding: 80px 20px;">
+        <h2>Pronto para tirar sua obra do papel?</h2>
+        <p>Acesso imediato após a confirmação do pagamento.</p>
+        <a href="SEU_LINK_HOTMART_AQUI" class="btn-checkout">BAIXAR PROJETO COMPLETO</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Independência - Todos os direitos reservados.</p>
+        <p>CNPJ: [Seu CNPJ do MEI aqui]</p>
+    </footer>
+
+</body>
+</html>
