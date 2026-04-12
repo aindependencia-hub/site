@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Tecnológico | Independência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37;
+            --bg: #f4f4f4;
+            --white: #ffffff;
+            --text-muted: #666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2rem;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .tool-card i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Stack Tecnológico</h1>
+        <p>As ferramentas que movem a engrenagem da Marca Independência</p>
+    </header>
+
+    <div class="tool-grid">
+        
+        <div class="tool-card">
+            <i class="fas fa-brain"></i>
+            <h3>Notion</h3>
+            <p>O cérebro do negócio. Onde os roteiros são escritos e o checklist de cada projeto é gerenciado.</p>
+            <span class="tag">Gestão & Wiki</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <p>Hospedagem do site e das landing pages. Garante custo zero de servidor e alta velocidade.</p>
+            <span class="tag">Hospedagem & Código</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-cube"></i>
+            <h3>SketchUp Web</h3>
+            <p>Criação técnica dos modelos 3D e extração de medidas precisas para as plantas baixas.</p>
+            <span class="tag">Modelagem 3D</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-robot"></i>
+            <h3>IAs Visuais</h3>
+            <p>Transformação de modelos brutos em imagens realistas com iluminação e texturas premium.</p>
+            <span class="tag">Renderização IA</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-film"></i>
+            <h3>Canva</h3>
+            <p>Montagem dos vídeos para Reels e YouTube, além da criação de miniaturas e artes para o site.</p>
+            <span class="tag">Edição Audiovisual</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-fire"></i>
+            <h3>Hotmart</h3>
+            <p>Processamento de pagamentos e entrega automática dos arquivos digitais para o cliente final.</p>
+            <span class="tag">Checkout & Venda</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-store"></i>
+            <h3>Nuvemshop</h3>
+            <p>Integração logística para entrega de produtos físicos e vitrine para o Guia de Compras.</p>
+            <span class="tag">Logística & Loja</span>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-comment-dots"></i>
+            <h3>Gemini AI</h3>
+            <p>Consultoria estratégica, criação de códigos HTML/CSS e estruturação de modelos de negócio.</p>
+            <span class="tag">Copiloto Estratégico</span>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Independência | 2026 - Tecnologia a serviço da Arquitetura.</p>
+    </footer>
+</div>
+
+</body>
+</html>
