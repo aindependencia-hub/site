@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportação Modular | Independência Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #121212;
+            --accent: #00d4ff; /* Azul tecnológico ou use o dourado #d4af37 */
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { color: var(--accent); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .subtitle { color: #888; font-size: 1.1rem; }
+
+        /* Estilo do Simulador (Simplificado para o Layout) */
+        .simulator-box {
+            background: var(--card-bg);
+            border: 2px dashed var(--accent);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .grid-apps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .card h3 { margin: 10px 0; color: #fff; }
+        
+        .step-tutorial {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .btn-export {
+            background: var(--accent);
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        footer { text-align: center; margin-top: 60px; color: #666; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Simulador de Volumetria</h1>
+        <p class="subtitle">Crie a base do seu projeto e exporte para os principais softwares do mercado.</p>
+    </header>
+
+    <div class="simulator-box">
+        <i class="fas fa-cubes fa-3x" style="color: var(--accent); margin-bottom: 20px;"></i>
+        <h2>[ ÁREA DO SIMULADOR ATIVA ]</h2>
+        <p>Arraste os módulos e defina as medidas do seu terreno abaixo.</p>
+        <button class="btn-export" onclick="alert('Funcionalidade de exportação disponível no Plano Blueprint')">
+            Exportar Base 3D (.OBJ)
+        </button>
+    </div>
+
+    <h2 style="text-align: center; margin-bottom: 30px;">Compatibilidade de Exportação</h2>
+    
+    <div class="grid-apps">
+        <div class="card">
+            <i class="fas fa-home"></i>
+            <h3>Sweet Home 3D</h3>
+            <p>Importe como "Mobiliário" para ter as paredes e cômodos já posicionados em escala real.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-draw-polygon"></i>
+            <h3>SketchUp</h3>
+            <p>Ideal para marcenaria e detalhamento de fachadas. Aceita o arquivo OBJ nativamente.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-city"></i>
+            <h3>Revit / ArchiCAD</h3>
+            <p>Para profissionais. Use a base exportada para gerar as plantas de aprovação na prefeitura.</p>
+        </div>
+    </div>
+
+    <div class="step-tutorial">
+        <h3>Como usar o arquivo exportado:</h3>
+        <ol>
+            <li>Finalize sua montagem no simulador acima respeitando os recuos do terreno.</li>
+            <li>Clique em <strong>"Exportar Base 3D"</strong> para baixar o arquivo técnico.</li>
+            <li>Abra o seu software de preferência (ex: Sweet Home 3D).</li>
+            <li>Vá em <strong>Importar</strong> e selecione o arquivo baixado.</li>
+            <li>Pronto! Você economizou horas de desenho básico e já pode começar a decorar.</li>
+        </ol>
+    </div>
+
+    <footer>
+        <p>Independência Hub — Tecnologia para Criar. Liberdade para Construir. © 2026</p>
+    </footer>
+</div>
+
+</body>
+</html>
