@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Ferramentas - A Independência Hub</title>
+    <!-- Link para o CSS existente do seu site -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos complementares para organizar os cards de ferramentas */
+        .container-ferramentas {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card-ferramenta {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+        }
+        .card-ferramenta h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .card-ferramenta p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .btn-acessar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-acessar:hover {
+            background-color: #0056b3;
+        }
+        .sem-link {
+            display: inline-block;
+            padding: 10px 0;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="text-align: center; padding: 40px 0;">
+        <h1>Atalhos de Ferramentas</h1>
+        <p>Acesso rápido aos apps dos meus projetos</p>
+    </header>
+
+    <div class="container-ferramentas">
+
+        <!-- SketchUp -->
+        <div class="card-ferramenta">
+            <h3>SketchUp</h3>
+            <p>Usado para criar projeto 3D, a volumetria.</p>
+            <a href="https://app.sketchup.com/app" target="_blank" class="btn-acessar">Acessar SketchUp</a>
+        </div>
+
+        <!-- Rayon -->
+        <div class="card-ferramenta">
+            <h3>Rayon</h3>
+            <p>Para criar as plantas humanizadas.</p>
+            <a href="https://www.rayon.design/app/" target="_blank" class="btn-acessar">Acessar Rayon</a>
+        </div>
+
+        <!-- Sweet Home 3D -->
+        <div class="card-ferramenta">
+            <h3>Sweet Home 3D</h3>
+            <p>Criar as plantas baixas em escala com as metragens.</p>
+            <span class="sem-link">(Software Local / Sem link)</span>
+        </div>
+
+        <!-- D5 Render -->
+        <div class="card-ferramenta">
+            <h3>D5 Design</h3>
+            <p>Para fazer as renderizações.</p>
+            <span class="sem-link">(Acesso via Desktop)</span>
+        </div>
+
+        <!-- Leonardo.ai -->
+        <div class="card-ferramenta">
+            <h3>Leonardo.ai</h3>
+            <p>IA para gerar vídeos do ambiente.</p>
+            <a href="https://leonardo.ai" target="_blank" class="btn-acessar">Acessar Leonardo.ai</a>
+        </div>
+
+        <!-- Nanobanana -->
+        <div class="card-ferramenta">
+            <h3>Nanobanana</h3>
+            <p>Criar imagens realistas através das imagens geradas anteriormente pela volumetria.</p>
+            <span class="sem-link">(Acesso via App/Web)</span>
+        </div>
+
+        <!-- Canva -->
+        <div class="card-ferramenta">
+            <h3>Canva</h3>
+            <p>Criar imagens dos ambientes com produtos diferentes.</p>
+            <a href="https://www.canva.com/" target="_blank" class="btn-acessar">Acessar Canva</a>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px;">
+        <a href="index.html">Voltar para o Início</a>
+    </footer>
+
+</body>
+</html>
