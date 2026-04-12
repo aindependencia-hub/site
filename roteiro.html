@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro Criativo | Independência</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37;
+            --bg: #f4f4f4;
+            --white: #ffffff;
+            --gray: #888;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .fase {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .fase-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 10px;
+        }
+
+        .fase-title i {
+            color: var(--accent);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .fase-title h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            transition: background 0.2s;
+            border-radius: 6px;
+        }
+
+        .checklist-item:hover {
+            background: #fafafa;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 6px;
+            margin-right: 15px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+        }
+
+        .item-text {
+            flex: 1;
+        }
+
+        .item-text strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .item-text span {
+            font-size: 0.85rem;
+            color: var(--gray);
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin: 20px auto; }
+            .fase { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="favicon.png" width="50" alt="Logo" style="margin-bottom: 10px;">
+    <h1>Roteiro Criativo</h1>
+    <p>Fluxo de Trabalho Padrão - Marca Independência</p>
+</header>
+
+<div class="container">
+
+    <div class="fase">
+        <div class="fase-title">
+            <i class="fas fa-pen-nib"></i>
+            <h2>01. Concepção e Modelagem</h2>
+        </div>
+        
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Definir o Croqui Inicial</strong>
+                <span>Identificar se é Residencial, Comercial, Rural ou Reforma isolada.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Desenho no SketchUp</strong>
+                <span>Modelar a base fictícia, tirar medidas reais e criar as marcações na planta baixa.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Transformação 3D e Mobiliário</strong>
+                <span>Elevar o projeto e inserir os objetos/produtos que serão vendidos via afiliados.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fase">
+        <div class="fase-title">
+            <i class="fas fa-magic"></i>
+            <h2>02. Visualização com IA</h2>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Renderização via IA</strong>
+                <span>Processar o arquivo para definir cores, texturas e iluminação realista.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Exportação de Ativos</strong>
+                <span>Gerar as imagens finais em alta resolução para o Canva e para o site.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fase">
+        <div class="fase-title">
+            <i class="fas fa-video"></i>
+            <h2>03. Produção Audiovisual</h2>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Montagem no Canva</strong>
+                <span>Definir formato (Reels/YouTube), selecionar faixas de áudio e organizar as cenas.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Roteiro e CTA</strong>
+                <span>Escrever e gravar a chamada para ação direcionando para o seu domínio.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Prova Visual do Site</strong>
+                <span>Tirar prints/fotos do site com a planta disponível para gerar confiança no vídeo.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fase">
+        <div class="fase-title">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>04. Empacotamento e Venda</h2>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Criação dos PDFs Técnicos</strong>
+                <span>Organizar as pranchas que serão entregues na Hotmart (PDF/DWG).</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Configuração Hotmart</strong>
+                <span>Subir arquivos, definir preço e copiar o link de checkout para a Landing Page.</span>
+            </div>
+        </div>
+
+        <div class="checklist-item">
+            <input type="checkbox">
+            <div class="item-text">
+                <strong>Atualização do Hub (GitHub)</strong>
+                <span>Publicar a nova página de projeto e atualizar o Guia de Compras.</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Independência &
