@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Compras | Independência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37; /* Dourado para passar autoridade/arquitetura */
+            --bg: #f9f9f9;
+            --white: #ffffff;
+            --text-muted: #666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--primary);
+        }
+
+        header {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .video-section {
+            margin-bottom: 40px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .card-produto {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-3px);
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .info-produto {
+            padding: 12px;
+            flex-grow: 1;
+        }
+
+        .info-produto h3 {
+            font-size: 0.9rem;
+            margin: 0 0 5px 0;
+        }
+
+        .info-produto p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .btn-link {
+            display: block;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-link:hover {
+            background: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .grid-produtos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="margin:0; font-size: 1.5rem;">Guia de Compras</h1>
+    <p style="color:var(--text-muted); font-size: 0.9rem;">Itens selecionados por profissionais</p>
+</header>
+
+<div class="container">
+
+    <div class="video-section">
+        <div class="video-title">Projeto Aroeira - Cozinha e Sala</div>
+        <div class="grid-produtos">
+            
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/300x200" alt="Luminária Pendente">
+                <div class="info-produto">
+                    <h3>Pendente Industrial Preto</h3>
+                    <p>O modelo usado na bancada da cozinha.</p>
+                    <a href="SEU_LINK_AFILIADO_AQUI" target="_blank" class="btn-link">Ver na Amazon</a>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/300x200" alt="Torneira Gourmet">
+                <div class="info-produto">
+                    <h3>Torneira Monocomando</h3>
+                    <p>Alta resistência com acabamento fosco.</p>
+                    <a href="SEU_LINK_AFILIADO_AQUI" target="_blank" class="btn-link">Ver na Shopee</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="video-section">
+        <div class="video-title">Quarto Casal Minimalista</div>
+        <div class="grid-produtos">
+            
+            <div class="card-produto">
+                <img src="https://via.placeholder.com/300x200" alt="Arandela">
+                <div class="info-produto">
+                    <h3>Arandela Articulada</h3>
+                    <p>Ideal para leitura noturna na cabeceira.</p>
+                    <a href="SEU_LINK_AFILIADO_AQUI" target="_blank" class="btn-link">Ver Produto</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Independência - Consultoria & Projetos</p>
+    <p>Alguns links podem gerar comissão para o canal.</p>
+</footer>
+
+</body>
+</html>
