@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa do Ecossistema — Independência Hub</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* UNIFICAÇÃO DE CORES: Sugiro usar o dourado da index como padrão */
+      --primary: #1a1a1a;
+      --accent: #d4af37; 
+      --bg: #FDFBF7;
+      --card-bg: #ffffff;
+      --text: #333;
+      --danger: #e74c3c;
+      --success: #27ae60;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header { text-align: center; margin-bottom: 60px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--primary); margin: 0; }
+    .subtitle { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .page-card {
+      background: var(--card-bg);
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 10px;
+    }
+
+    .page-title { font-weight: bold; font-size: 1.2rem; color: var(--primary); }
+    .status-tag { font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; font-weight: bold; }
+    .status-alert { background: #fff3cd; color: #856404; }
+    .status-ok { background: #d4edda; color: #155724; }
+
+    .obs-list { background: #f9f9f9; padding: 15px; border-radius: 8px; font-size: 0.9rem; border-left: 4px solid var(--accent); }
+    .obs-list strong { color: var(--danger); }
+
+    .btn-link {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-link:hover { opacity: 0.7; }
+
+    footer { text-align: center; margin-top: 60px; color: #999; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="subtitle">Auditoria Técnica & Estrutura</div>
+    <h1>Mapa do Site</h1>
+    <p>Guia de unificação para o ecossistema <strong>Independência Hub</strong></p>
+  </header>
+
+  <div class="audit-grid">
+
+    <div class="page-card">
+      <div class="page-header">
+        <span class="page-title">1. Landing Page Principal (index.html)</span>
+        <span class="status-tag status-alert">Ação Necessária</span>
+      </div>
+      <p>A porta de entrada do cliente e o motor de captura de leads.</p>
+      <div class="obs-list">
+        <strong>Correções:</strong>
+        <ul>
+          <li>Substituir <code>SEU_WEBHOOK_MAKE_URL</code> pelo link gerado no Make.com.</li>
+          <li>Revisar o caminho do favicon: o código busca <code>./favicon.ico</code>, mas o arquivo enviado é <code>favicon.ico</code>.</li>
+          <li>Descomentar as tags de Google Analytics e Pixel quando as contas forem criadas.</li>
+        </ul>
+      </div>
+      <a href="index.html" class="btn-link">Ver Página →</a>
+    </div>
+
+    <div class="page-card">
+      <div class="page-header">
+        <span class="page-title">2. Conversão e Vendas (planos.html / hotmart.html)</span>
+        <span class="status-tag status-alert">Ação Necessária</span>
+      </div>
+      <p>Onde o usuário escolhe entre o PDF (Escalável) ou a Consultoria (High Ticket).</p>
+      <div class="obs-list">
+        <strong>Correções:</strong>
+        <ul>
+          <li>Unificar o <code>--accent</code>: aqui está usando um marrom, enquanto a index usa dourado.</li>
+          <li>Substituir <code>SEU_LINK_HOTMART</code> pelos links de checkout reais.</li>
+          <li>Em <code>hotmart.html</code>, incluir o link do seu <strong>Calendly</strong> no campo de agendamento.</li>
+        </ul>
+      </div>
+      <a href="planos.html" class="btn-link">Ver Planos →</a>
+    </div>
+
+    <div class="page-card">
+      <div class="page-header">
+        <span class="page-title">3. Expansão (parceiros.html / galo.html)</span>
+        <span class="status-tag status-ok">Estrutura OK</span>
+      </div>
+      <p>Sistema de embaixadores e moderação de projetos da comunidade.</p>
+      <div class="obs-list">
+        <strong>Observações Técnicas:</strong>
+        <ul>
+          <li>Certificar que a view do Airtable em <code>parceiros.html</code> está com a opção "Shared View" ativa.</li>
+          <li>Substituir <code>SEUNUMERO</code> no link do WhatsApp pelo formato <code>55149...</code></li>
+        </ul>
+      </div>
+      <a href="parceiros.html" class="btn-link">Ver Parceiros →</a>
+    </div>
+
+    <div class="page-card">
+      <div class="page-header">
+        <span class="page-title">4. Autoridade (guia.html / habite-se.html / conceito.html)</span>
+        <span class="status-tag status-alert">Ação Necessária</span>
+      </div>
+      <p>Conteúdo que tira dúvidas e gera comissões via afiliados.</p>
+      <div class="obs-list">
+        <strong>Unificação Visual:</strong>
+        <ul>
+          <li><code>habite-se.html</code> está muito simples. Aplicar as classes de CSS da <code>index.html</code> para manter o padrão "Premium".</li>
+          <li>Substituir as imagens de <code>placeholder.com</code> no Guia de Compras por fotos reais do seu catálogo.</li>
+          <li>Trocar todos os <code>SEU_LINK_AFILIADO_AQUI</code>.</li>
+        </ul>
+      </div>
+      <a href="guia.html" class="btn-link">Ver Guia →</a>
+    </div>
+
+    <div class="page-card">
+      <div class="page-header">
+        <span class="page-title">5. Bastidores (ia.html / aplicacoes.html / ferramentas.html)</span>
+        <span class="status-tag status-ok">Pronto</span>
+      </div>
+      <p>Exposição da tecnologia usada (Sweet Home 3D, D5, IA).</p>
+      <div class="obs-list">
+        <strong>Dica:</strong> Estas páginas são ótimas para atrair outros profissionais via SEO. Adicione palavras-chave como "Arquitetura com IA" nos metadados.
+      </div>
+      <a href="ia.html" class="btn-link">Ver IA Hub →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>A Independência Hub — Ecossistema Digital © 2026</p>
+    <p>Desenvolvido com foco em escalabilidade e design minimalista.</p>
+  </footer>
+</div>
+
+</body>
+</html>
