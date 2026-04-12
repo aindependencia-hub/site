@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto #001 - Independência</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0a0a;
+            --dark-soft: #1a1a1a;
+            --white: #ffffff;
+            --gray: #888;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: var(--white); margin: 0; line-height: 1.6; overflow-x: hidden; }
+
+        /* HEADER */
+        header { padding: 20px; text-align: center; border-bottom: 1px solid var(--dark-soft); }
+        .logo { font-weight: 900; letter-spacing: 3px; font-size: 1.5rem; color: var(--gold); }
+
+        /* HERO SECTION */
+        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 100%); }
+        .tagline { color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        h1 { font-size: 3.5rem; margin: 10px 0; font-weight: 900; }
+        .hero p { color: var(--gray); max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem; }
+
+        /* VIDEO */
+        .video-box { max-width: 900px; margin: 0 auto 50px; border: 2px solid var(--dark-soft); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+        /* BOTÃO MATADOR */
+        .cta-button { 
+            background: linear-gradient(45deg, var(--gold), #f2d06b); 
+            color: #000; padding: 22px 50px; border-radius: 50px; 
+            font-size: 1.4rem; font-weight: 900; text-decoration: none; 
+            display: inline-block; transition: 0.4s; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5); }
+
+        /* GRID TÉCNICA */
+        .features { padding: 80px 20px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .f-card { background: var(--dark-soft); padding: 30px; border-radius: 15px; border: 1px solid #333; }
+        .f-card i { color: var(--gold); font-size: 2rem; margin-bottom: 20px; }
+        .f-card h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
+        .f-card p { color: var(--gray); font-size: 0.9rem; }
+
+        /* SEÇÃO O QUE VOCÊ RECEBE */
+        .delivery { padding: 80px 20px; text-align: center; background-color: #0d0d0d; }
+        .checklist { max-width: 600px; margin: 40px auto; text-align: left; list-style: none; padding: 0; }
+        .checklist li { padding: 15px 0; border-bottom: 1px solid #222; font-size: 1.1rem; }
+        .checklist li i { color: #27ae60; margin-right: 15px; }
+
+        /* FOOTER */
+        footer { padding: 60px 20px; border-top: 1px solid var(--dark-soft); text-align: center; color: var(--gray); font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .cta-button { font-size: 1.1rem; width: 90%; padding: 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">INDEPENDÊNCIA</div>
+    </header>
+
+    <section class="hero">
+        <span class="tagline">Projeto Executivo #001</span>
+        <h1>Construa com Inteligência.</h1>
+        <p>Tenha em mãos o projeto completo da Casa Aroeira. Economia de materiais, design de alto padrão e toda a documentação técnica para sua obra.</p>
+        
+        <div class="video-box">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <a href="SEU_LINK_HOTMART" class="btn-checkout cta-button">
+            QUERO O PROJETO COMPLETO <i class="fas fa-arrow-right"></i>
+        </a>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #555;">Pagamento Seguro via Hotmart | Acesso Imediato</p>
+    </section>
+
+    <section class="features">
+        <div class="f-card">
+            <i class="fas fa-drafting-compass"></i>
+            <h3>Precisão Técnica</h3>
+            <p>Plantas detalhadas em escalas profissionais para que nenhum pedreiro tenha dúvidas na hora de executar.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-coins"></i>
+            <h3>Economia Real</h3>
+            <p>Otimização de pilares e vigas. Evite o desperdício de aço e concreto que custam caro na sua obra.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-layer-group"></i>
+            <h3>Arquivos Editáveis</h3>
+            <p>Receba em DWG (AutoCAD) para que seu engenheiro local possa fazer qualquer adaptação necessária.</p>
+        </div>
+    </section>
+
+    <section class="delivery">
+        <h2>O que você vai baixar hoje:</h2>
+        <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> Planta Baixa Humanizada e Técnica</li>
+            <li><i class="fas fa-check-circle"></i> Cortes Transversais e Longitudinais</li>
+            <li><i class="fas fa-check-circle"></i> Fachadas em Alta Definição (Render)</li>
+            <li><i class="fas fa-check-circle"></i> Planta de Cobertura e Escoamento</li>
+            <li><i class="fas fa-check-circle"></i> Lista Quantitativa de Materiais</li>
+            <li><i class="fas fa-check-circle"></i> Manual de Orientações da Obra</li>
+        </ul>
+        
+        <a href="SEU_LINK_HOTMART" class="cta-button">
+            ADQUIRIR AGORA POR R$ [SEU_PREÇO]
+        </a>
+    </section>
+
+    <footer>
+        <p>Independência Consultoria & Projetos</p>
+        <p>Atenção: Este projeto deve ser acompanhado por um responsável técnico local (RRT/ART).</p>
+        <p>Tupã, SP - Brasil</p>
+    </footer>
+
+</body>
+</html>
