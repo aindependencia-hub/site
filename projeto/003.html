@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto #001 | Independência</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Importando as variáveis do seu site */
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37; 
+            --bg: #f9f9f9;
+            --white: #ffffff;
+            --text-muted: #666;
+            --hotmart-orange: #f04e23;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Header Minimalista */
+        header {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 15px;
+        }
+
+        /* Seção de Venda (Hero) */
+        .venda-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .venda-header span {
+            color: var(--accent);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .venda-header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        /* Vídeo Principal */
+        .video-main {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Card de CTA (Call to Action) */
+        .cta-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .btn-comprar {
+            display: block;
+            background: var(--hotmart-orange);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-comprar:hover {
+            transform: scale(1.02);
+            background: #d6431c;
+        }
+
+        /* Grade de Benefícios (Estilo dos seus cards) */
+        .entrega-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .entrega-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .entrega-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .entrega-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .venda-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="favicon.png" width="40" alt="Logo">
+    <div style="font-weight: bold; letter-spacing: 1px;">INDEPENDÊNCIA</div>
+</header>
+
+<div class="container">
+    
+    <div class="venda-header">
+        <span>PROJETO EXECUTIVO #001</span>
+        <h1>Casa Aroeira - 85m²</h1>
+        <p>A solução completa para sua obra: do PDF ao arquivo DWG editável.</p>
+    </div>
+
+    <div class="video-main">
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="cta-card">
+        <p style="margin-bottom: 5px;">Acesso imediato ao pacote completo:</p>
+        <div class="price"><span>R$ 497</span> R$ 197</div>
+        <a href="SEU_LINK_HOTMART" class="btn-comprar">
+            <i class="fas fa-download"></i> BAIXAR PROJETO AGORA
+        </a>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px;">
+            <i class="fas fa-shield-alt"></i> Compra segura processada pela Hotmart
+        </p>
+    </div>
+
+    <div class="entrega-grid">
+        <div class="entrega-item">
+            <h3><i class="fas fa-file-pdf"></i> PDF Executivo</h3>
+            <p>Plantas de layout, cortes, fachadas e cobertura prontos para impressão.</p>
+        </div>
+        <div class="entrega-item">
+            <h3><i class="fas fa-pencil-ruler"></i> Arquivos DWG</h3>
+            <p>Arquivos editáveis no AutoCAD para ajustes técnicos e aprovações.</p>
+        </div>
+        <div class="entrega-item">
+            <h3><i class="fas fa-clipboard-list"></i> Lista de Materiais</h3>
+            <p>Quantitativo detalhado para você cotar com fornecedores e evitar sobras.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Independência - Consultoria e Projetos</p>
+    <p>Este material é um guia técnico. Consulte sempre um profissional local para RRT/ART.</p>
+</footer>
+
+</body>
+</html>
