@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador Arquitetônico Frontend</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1>Simulador Arquitetônico</h1>
+        <p>100% frontend • roda direto no navegador</p>
+      </header>
+
+      <section class="controls">
+        <div class="grid">
+          <label>Largura do terreno (m)
+            <input id="terrenoW" type="number" value="10" min="6" step="0.5" />
+          </label>
+          <label>Profundidade do terreno (m)
+            <input id="terrenoH" type="number" value="25" min="10" step="0.5" />
+          </label>
+          <label>Recuo frontal (m)
+            <input id="recuoFrontal" type="number" value="5" min="4" step="0.5" />
+          </label>
+          <label>Recuo fundo (m)
+            <input id="recuoFundo" type="number" value="1.5" min="0" step="0.5" />
+          </label>
+          <label>Recuo lateral (m)
+            <input id="recuoLateral" type="number" value="1.5" min="0" step="0.5" />
+          </label>
+          <label>Largura de circulação (m)
+            <input id="larguraCirculacao" type="number" value="1" min="1" max="1.5" step="0.1" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="gerarBtn">Gerar planta</button>
+          <button id="novaSeedBtn" class="secondary">Nova variação</button>
+        </div>
+      </section>
+
+      <section class="canvas-wrap">
+        <canvas id="plantaCanvas" width="1200" height="800"></canvas>
+      </section>
+
+      <section>
+        <h2>Alertas</h2>
+        <ul id="alertas"></ul>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
