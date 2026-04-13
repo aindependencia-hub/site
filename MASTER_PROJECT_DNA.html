@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Project DNA</title>
+    <style>
+        :root {
+            --background: hsl(0 0% 100%);
+            --foreground: hsl(240 10% 3.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(240 10% 3.9%);
+            --primary: hsl(240 5.9% 10%);
+            --primary-foreground: hsl(0 0% 98%);
+            --secondary: hsl(240 4.8% 95.9%);
+            --secondary-foreground: hsl(240 5.9% 10%);
+            --border: hsl(240 5.9% 90%);
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        p, li {
+            font-size: 1rem;
+        }
+
+        code {
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background-color: var(--secondary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        pre code {
+            padding: 0;
+            background-color: transparent;
+            color: inherit;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        thead {
+            background-color: var(--secondary);
+        }
+        
+        th {
+            font-weight: 600;
+            color: var(--secondary-foreground);
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MASTER_PROJECT_DNA.md</h1>
+            <p>Este documento detalha o DNA técnico e visual do projeto "Simulador Arquitetônico", servindo como um guia mestre para reconstrução e desenvolvimento.</p>
+        </header>
+
+        <main>
+            <section id="visual-dna">
+                <h2>1. DNA VISUAL (Design System)</h2>
+                <p>O design system é construído sobre Tailwind CSS com uma estética minimalista e funcional, utilizando o sistema de temas do Radix UI.</p>
+
+                <h3>Paleta de Cores</h3>
+                <p>As cores são definidas como variáveis CSS no arquivo <code>artifacts/simulador-arquitetonico/src/index.css</code>, permitindo temas claro e escuro.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome da Variável CSS</th>
+                            <th>Hex (Tema Claro)</th>
+                            <th>Hex (Tema Escuro)</th>
+                            <th>Aplicação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>--background</code></td><td>hsl(0 0% 100%)</td><td>hsl(240 10% 3.9%)</td><td>Fundo principal da aplicação</td></tr>
+                        <tr><td><code>--foreground</code></td><td>hsl(240 10% 3.9%)</td><td>hsl(0 0% 98%)</td><td>Texto principal e ícones</td></tr>
+                        <tr><td><code>--card</code></td><td>hsl(0 0% 100%)</td><td>hsl(240 10% 3.9%)</td><td>Fundo de componentes como Card</td></tr>
+                        <tr><td><code>--card-foreground</code></td><td>hsl(240 10% 3.9%)</td><td>hsl(0 0% 98%)</td><td>Texto dentro de Cards</td></tr>
+                        <tr><td><code>--popover</code></td><td>hsl(0 0% 100%)</td><td>hsl(240 10% 3.9%)</td><td>Fundo de Popovers e Dropdowns</td></tr>
+                        <tr><td><code>--popover-foreground</code></td><td>hsl(240 10% 3.9%)</td><td>hsl(0 0% 98%)</td><td>Texto em Popovers</td></tr>
+                        <tr><td><code>--primary</code></td><td>hsl(240 5.9% 10%)</td><td>hsl(0 0% 98%)</td><td>Cor primária para botões e interações</td></tr>
+                        <tr><td><code>--primary-foreground</code></td><td>hsl(0 0% 98%)</td><td>hsl(240 5.9% 10%)</td><td>Texto em botões primários</td></tr>
+                        <tr><td><code>--secondary</code></td><td>hsl(240 4.8% 95.9%)</td><td>hsl(240 3.7% 15.9%)</td><td>Cor secundária para elementos de UI</td></tr>
+                        <tr><td><code>--secondary-foreground</code></td><td>hsl(240 5.9% 10%)</td><td>hsl(0 0% 98%)</td><td>Texto em elementos secundários</td></tr>
+                        <tr><td><code>--muted</code></td><td>hsl(240 4.8% 95.9%)</td><td>hsl(240 3.7% 15.9%)</td><td>Elementos com aparência sutil (muted)</td></tr>
+                        <tr><td><code>--muted-foreground</code></td><td>hsl(240 3.8% 46.1%)</td><td>hsl(240 5% 64.9%)</td><td>Texto sutil (muted)</td></tr>
+                        <tr><td><code>--accent</code></td><td>hsl(240 4.8% 95.9%)</td><td>hsl(240 3.7% 15.9%)</td><td>Cor de destaque para hover, etc.</td></tr>
+                        <tr><td><code>--accent-foreground</code></td><td>hsl(240 5.9% 10%)</td><td>hsl(0 0% 98%)</td><td>Texto em elementos de destaque</td></tr>
+                        <tr><td><code>--destructive</code></td><td>hsl(0 84.2% 60.2%)</td><td>hsl(0 62.8% 30.6%)</td><td>Ações destrutivas (ex: deletar)</td></tr>
+                        <tr><td><code>--destructive-foreground</code></td><td>hsl(0 0% 98%)</td><td>hsl(0 85.7% 97.3%)</td><td>Texto em ações destrutivas</td></tr>
+                        <tr><td><code>--border</code></td><td>hsl(240 5.9% 90%)</td><td>hsl(240 3.7% 15.9%)</td><td>Bordas de componentes</td></tr>
+                        <tr><td><code>--input</code></td><td>hsl(240 5.9% 90%)</td><td>hsl(240 3.7% 15.9%)</td><td>Borda de inputs</td></tr>
+                        <tr><td><code>--ring</code></td><td>hsl(240 5% 64.9%)</td><td>hsl(240 4.9% 83.9%)</td><td>Anel de foco (focus ring) para inputs</td></tr>
+                    </tbody>
+                </table>
+                
+                <h3>Tipografia</h3>
+                <ul>
+                    <li><strong>Fonte Principal:</strong> <code>Inter</code>, importada do Google Fonts.</li>
+                    <li><strong>Pesos Utilizados:</strong> 400 (Regular), 500 (Medium), 600 (Semi-bold), 700 (Bold).</li>
+                    <li><strong>Tamanhos Base (Tailwind CSS):</strong>
+                        <ul>
+                            <li><code>text-xs</code>: 0.75rem (12px)</li>
+                            <li><code>text-sm</code>: 0.875rem (14px)</li>
+                            <li><code>text-base</code>: 1rem (16px)</li>
+                            <li><code>text-lg</code>: 1.125rem (18px)</li>
+                            <li><code>text-xl</code>: 1.25rem (20px)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Padrões de Componentes (Variáveis CSS)</h3>
+                <p>Os componentes seguem um padrão consistente de espaçamento, bordas e sombras.</p>
+                <pre><code>
+:root {
+  /* Raio da Borda */
+  --border-radius-sm: 0.25rem;  /* 4px */
+  --border-radius: 0.5rem;      /* 8px */
+  --border-radius-lg: 0.75rem;    /* 12px */
+
+  /* Espaçamento (Padding) */
+  --padding-input-y: 0.5rem;    /* 8px */
+  --padding-input-x: 0.75rem;   /* 12px */
+  --padding-btn-y: 0.5rem;      /* 8px */
+  --padding-btn-x: 1rem;        /* 16px */
+  --padding-card: 1.5rem;       /* 24px */
+
+  /* Sombras (Box Shadow) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+                </code></pre>
+            </section>
+            
+            <section id="functional-dna">
+                <h2>2. DNA FUNCIONAL (User Experience)</h2>
+                <h3>Fluxo do Usuário</h3>
+                <ol>
+                    <li><strong>Abertura:</strong> O usuário abre o aplicativo e a interface principal do <code>Simulador Arquitetônico</code> é carregada.</li>
+                    <li><strong>Visualização:</strong> Uma área de canvas central exibe uma planta arquitetônica.</li>
+                    <li><strong>Interação:</strong> O usuário interage com os controles da UI para modificar parâmetros da planta.</li>
+                    <li><strong>Processamento:</strong> O <code>plantaEngine.ts</code> recalcula a estrutura da planta.</li>
+                    <li><strong>Renderização:</strong> O <code>plantaRenderer.ts</code> desenha a planta atualizada no canvas.</li>
+                    <li><strong>Feedback:</strong> O usuário vê a planta modificada em tempo real.</li>
+                </ol>
+                
+                <h3>Mapeamento de Rotas</h3>
+                <p>O roteamento é gerenciado pela biblioteca <code>wouter</code>.</p>
+                <ul>
+                    <li><code>/</code> (Raiz): Renderiza o componente principal <code>App</code>.</li>
+                    <li>Qualquer outra rota: Renderiza a página "404 Not Found".</li>
+                </ul>
+            </section>
+            
+            <section id="technical-dna">
+                <h2>3. DNA TÉCNICO (Architecture & Stack)</h2>
+                <h3>Stack de Tecnologias</h3>
+                 <ul>
+                    <li><strong>Build Tool:</strong> Vite (<code>vite</code>)</li>
+                    <li><strong>Framework Principal:</strong> React (<code>react</code>)</li>
+                    <li><strong>Linguagem:</strong> TypeScript (<code>typescript</code>)</li>
+                    <li><strong>Estilização:</strong> Tailwind CSS (<code>tailwindcss</code>)</li>
+                    <li><strong>Componentes Headless UI:</strong> Radix UI (<code>@radix-ui/*</code>)</li>
+                    <li><strong>Gerenciamento de Estado de Servidor:</strong> TanStack Query (<code>@tanstack/react-query</code>)</li>
+                    <li><strong>Roteamento:</strong> Wouter (<code>wouter</code>)</li>
+                    <li><strong>Validação de Esquema:</strong> Zod (<code>zod</code>)</li>
+                    <li><strong>Ícones:</strong> Lucide React (<code>lucide-react</code>)</li>
+                </ul>
+                
+                <h3>Estrutura de Pastas</h3>
+                <pre><code>
+/
+├── artifacts/
+│   └── simulador-arquitetonico/
+│       ├── public/
+│       ├── src/
+│       │   ├── components/
+│       │   ├── hooks/
+│       │   ├── lib/
+│       │   ├── pages/
+│       │   ├── App.tsx
+│       │   ├── main.tsx
+│       │   ├── index.css
+│       │   ├── plantaEngine.ts
+│       │   └── plantaRenderer.ts
+│       ├── vite.config.ts
+│       └── ...
+├── lib/
+└── ...
+                </code></pre>
+            </section>
+            
+            <section id="business-dna">
+                <h2>4. DNA DE NEGÓCIO (Core Purpose)</h2>
+                <h3>Objetivo do Aplicativo</h3>
+                <p>Fornecer uma ferramenta de simulação arquitetônica que permite aos usuários gerar, visualizar e manipular plantas baixas de forma interativa.</p>
+                
+                <h3>Usuário Final</h3>
+                <p>Profissionais ou estudantes da área de arquitetura, design de interiores ou engenharia civil que necessitam de uma ferramenta para prototipação visual rápida.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
