@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Treino de Topografia 2D</title>
+    <style>
+        body { font-family: sans-serif; display: flex; gap: 20px; padding: 20px; background: #f0f0f0; }
+        #controles { width: 300px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        canvas { background: white; border: 1px solid #ccc; border-radius: 8px; }
+        .ponto-input { margin-bottom: 10px; display: flex; gap: 5px; }
+        input { width: 60px; }
+        button { cursor: pointer; padding: 8px; margin-top: 10px; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="controles">
+    <h3>Dados do Terreno</h3>
+    <div id="lista-pontos">
+        <div class="ponto-input">
+            <input type="number" class="x" placeholder="X" value="50">
+            <input type="number" class="y" placeholder="Y" value="50">
+        </div>
+        <div class="ponto-input">
+            <input type="number" class="x" placeholder="X" value="250">
+            <input type="number" class="y" placeholder="Y" value="50">
+        </div>
+        <div class="ponto-input">
+            <input type="number" class="x" placeholder="X" value="200">
+            <input type="number" class="y" placeholder="Y" value="200">
+        </div>
+    </div>
+    <button onclick="adicionarInput()">+ Adicionar Vértice</button>
+    <button onclick="desenharPoligono()" style="background: #2ecc71; color: white; border: none;">Desenhar e Fechar</button>
+</div>
+
+<canvas id="mapa" width="500" height="500"></canvas>
+
+<script>
+    function adicionarInput() {
+        const div = document.createElement('div');
+        div.className = 'ponto-input';
+        div.innerHTML = '<input type="number" class="x" placeholder="X"> <input type="number" class="y" placeholder="Y">';
+        document.getElementById('lista-pontos').appendChild(div);
+    }
+
+    function desenharPoligono() {
+        const canvas = document.getElementById('mapa');
+        const ctx = canvas.getContext('2d');
+        const xs = document.querySelectorAll('.x');
+        const ys = document.querySelectorAll('.y');
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o desenho anterior
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "#3498db";
+        ctx.lineWidth = 3;
+        ctx.fillStyle = "rgba(52, 152, 219, 0.2)";
+
+        // Começa o caminho no primeiro ponto
+        ctx.moveTo(xs[0].value, ys[0].value);
+
+        // Percorre os pontos intermediários
+        for(let i = 1; i < xs.length; i++) {
+            if(xs[i].value && ys[i].value) {
+                ctx.lineTo(xs[i].value, ys[i].value);
+            }
+        }
+
+        // A Mágica: fecha o polígono ligando o último ao primeiro ponto automaticamente
+        ctx.closePath(); 
+        ctx.stroke();
+        ctx.fill();
+
+        // Desenha os pontos (vértices)
+        xs.forEach((x, i) => {
+            ctx.fillStyle = "red";
+            ctx.fillRect(x.value - 2, ys[i].value - 2, 4, 4);
+        });
+    }
+
+    // Inicia o desenho com os valores padrão
+    desenharPoligono();
+</script>
+
+</body>
+</html>
